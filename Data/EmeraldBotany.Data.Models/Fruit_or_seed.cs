@@ -1,10 +1,14 @@
 ﻿namespace EmeraldBotany.Data.Models
 {
-    public class Flower
+    public class Fruit_or_seed
     {
-        public System.Collections.Generic.ICollection<Color?> Color { get; set; }
-
         public bool? Conspicuous { get; set; }
+
+        public System.Collections.Generic.ICollection<Color3?> Color { get; set; }
+
+        public string Shape { get; set; }
+
+        public bool? Seed_persistence { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 

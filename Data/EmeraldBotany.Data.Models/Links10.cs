@@ -1,10 +1,12 @@
 ﻿namespace EmeraldBotany.Data.Models
 {
-    public class Flower
+    public class Links10
     {
-        public System.Collections.Generic.ICollection<Color?> Color { get; set; }
+        public string Self { get; set; }
 
-        public bool? Conspicuous { get; set; }
+        public string Genus { get; set; }
+
+        public string Plant { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 

@@ -1,35 +1,31 @@
 ﻿namespace EmeraldBotany.Data.Models
 {
-    using EmeraldBotany.Data.Common.Models;
-    using Newtonsoft.Json;
-
-    public class Specifications : BaseDeletableModel<int>
+    public class Specifications
     {
-        [JsonProperty("growth_habit")]
-        public string GrowthHabit { get; set; }
+        public SpecificationsLigneous_type? Ligneous_type { get; set; }
 
-        [JsonProperty("growth_rate")]
-        public string GrowthRate { get; set; }
+        public string Growth_form { get; set; }
 
-        [JsonProperty("form")]
-        public string Form { get; set; }
+        public string Growth_habit { get; set; }
 
-        [JsonProperty("nitrogen_fixation")]
-        public string NitrogenFixation { get; set; }
+        public string Growth_rate { get; set; }
 
-        [JsonProperty("shape_and_orientation")]
-        public string ShapeAndOrientation { get; set; }
+        public Average_height Average_height { get; set; }
 
-        [JsonProperty("toxicity")]
-        public string Toxicity { get; set; }
+        public Maximum_height Maximum_height { get; set; }
 
-        [JsonProperty("type")]
-        public string Type { get; set; }
+        public string Nitrogen_fixation { get; set; }
 
-        [JsonProperty("average_height")]
-        public string AverageHeight { get; set; }
+        public string Shape_and_orientation { get; set; }
 
-        [JsonProperty("maximum_height")]
-        public string MaximumHeight { get; set; }
+        public SpecificationsToxicity? Toxicity { get; set; }
+
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
+
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties; }
+            set { _additionalProperties = value; }
+        }
     }
 }

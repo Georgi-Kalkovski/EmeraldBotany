@@ -24,33 +24,7 @@
         {
         }
 
-        public DbSet<ApplicationUser> ApplicationUsers { get; set; }
-
-        public DbSet<Distributions> Distributions { get; set; }
-
-        public DbSet<Flower> Flowers { get; set; }
-
-        public DbSet<Foliage> Foliages { get; set; }
-
-        public DbSet<FruitOrSeed> FruitsOrSeeds { get; set; }
-
-        public DbSet<Growth> Growths { get; set; }
-
-        public DbSet<Images> Images { get; set; }
-
-        public DbSet<Links> Links { get; set; }
-
         public DbSet<Setting> Settings { get; set; }
-
-        public DbSet<Sources> Sources { get; set; }
-
-        public DbSet<Species> Species { get; set; }
-
-        public DbSet<Specifications> Specifications { get; set; }
-
-        public DbSet<SynonymsList> SynonymsLists { get; set; }
-
-        public DbSet<Trefle> Trefles { get; set; }
 
         public override int SaveChanges() => this.SaveChanges(true);
 

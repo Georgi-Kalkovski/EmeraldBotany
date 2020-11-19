@@ -1,8 +1,9 @@
 ﻿namespace EmeraldBotany.Web.ViewModels.Settings
 {
-    using AutoMapper;
     using EmeraldBotany.Data.Models;
     using EmeraldBotany.Services.Mapping;
+
+    using AutoMapper;
 
     public class SettingViewModel : IMapFrom<Setting>, IHaveCustomMappings
     {

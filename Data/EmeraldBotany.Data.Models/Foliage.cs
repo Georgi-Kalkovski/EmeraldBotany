@@ -1,17 +1,19 @@
 ﻿namespace EmeraldBotany.Data.Models
 {
-    using EmeraldBotany.Data.Common.Models;
-    using Newtonsoft.Json;
-
-    public class Foliage : BaseDeletableModel<int>
+    public class Foliage
     {
-        [JsonProperty("leaf_retention")]
-        public bool LeafRetention { get; set; }
+        public FoliageTexture? Texture { get; set; }
 
-        [JsonProperty("color")]
-        public string Texture { get; set; }
+        public System.Collections.Generic.ICollection<Color2?> Color { get; set; }
 
-        [JsonProperty("texture")]
-        public virtual string Color { get; set; }
+        public bool? Leaf_retention { get; set; }
+
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
+
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties; }
+            set { _additionalProperties = value; }
+        }
     }
 }

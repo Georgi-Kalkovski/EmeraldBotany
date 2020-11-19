@@ -11,6 +11,7 @@
     using EmeraldBotany.Services.Data;
     using EmeraldBotany.Services.Mapping;
     using EmeraldBotany.Services.Messaging;
+    using EmeraldBotany.Web.TrefleOpenAPIService;
     using EmeraldBotany.Web.ViewModels;
 
     using Microsoft.AspNetCore.Builder;
@@ -64,6 +65,8 @@
             // Application services
             services.AddTransient<IEmailSender, NullMessageSender>();
             services.AddTransient<ISettingsService, SettingsService>();
+            services.AddTransient<IPlantsService, PlantsService>();
+            services.AddSwaggerGen();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -106,6 +109,9 @@
                         endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
                         endpoints.MapRazorPages();
                     });
+
+            app.UseSwagger();
+            app.UseSwaggerUI();
         }
     }
 }

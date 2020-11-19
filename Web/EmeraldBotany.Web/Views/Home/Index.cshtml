@@ -1,6 +1,14 @@
-﻿@{ViewData["Title"] = "Home/Index.cshtml";}
-@using (Html.BeginForm("Index", "Plant", FormMethod.Get)) { }
-
+﻿@using EmeraldBotany.Common
+@{
+    this.ViewData["Title"] = "Home Page";
+}
+@model EmeraldBotany.Web.TrefleOpenAPIService.Species
 <div class="text-center">
-    <a asp-page="/Search">Search</a>
+    <h1 class="display-4">Welcome to @GlobalConstants.SystemName!</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
+
+@foreach (var specie in Model.Images.Flower)
+{
+<div>@specie.Image_url</div>
+}

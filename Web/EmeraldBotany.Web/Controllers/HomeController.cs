@@ -1,23 +1,21 @@
 ﻿namespace EmeraldBotany.Web.Controllers
 {
+    using System;
     using System.Diagnostics;
-
-    using EmeraldBotany.Data.Common.Repositories;
-    using EmeraldBotany.Data.Models;
-    using EmeraldBotany.Services.Data;
+    using System.Linq;
+    using EmeraldBotany.Web.TrefleOpenAPIService;
     using EmeraldBotany.Web.ViewModels;
 
     using Microsoft.AspNetCore.Mvc;
+    using Microsoft.VisualBasic.FileIO;
 
     public class HomeController : BaseController
     {
-        private readonly ITrefleService trefleService;
-        private readonly IDeletableEntityRepository<Trefle> repository;
+        private readonly IPlantsService plantsService;
 
-        public HomeController(ITrefleService trefleService, IDeletableEntityRepository<Trefle> repository)
+        public HomeController(IPlantsService plantsService)
         {
-            this.trefleService = trefleService;
-            this.repository = repository;
+            this.plantsService = plantsService;
         }
 
         public IActionResult Index()
@@ -35,6 +33,28 @@
         {
             return this.View(
                 new ErrorViewModel { RequestId = Activity.Current?.Id ?? this.HttpContext.TraceIdentifier });
+        }
+
+        [HttpPost]
+        public ActionResult Index(HttpPostedFileBase file)
+        {
+            using (TextFieldParser parser = new TextFieldParser(@"C:\Users\Smiley\Desktop\TakingStuffHelper\TakingStuffHelper\species.csv"))
+            {
+                parser.TextFieldType = FieldType.Delimited;
+                parser.SetDelimiters(",");
+
+                while (!parser.EndOfData)
+                {
+                    //Processing row
+                    string[] fields = parser.ReadFields();
+                    foreach (var field in fields)
+                    {
+                        var row = field.Split("\t", StringSplitOptions.RemoveEmptyEntries).ToArray();
+                        Console.WriteLine(row[1]);
+                        break;
+                    }
+                }
+            }
         }
     }
 }

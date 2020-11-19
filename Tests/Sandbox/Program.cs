@@ -5,7 +5,6 @@
     using System.IO;
     using System.Threading.Tasks;
 
-    using CommandLine;
     using EmeraldBotany.Data;
     using EmeraldBotany.Data.Common;
     using EmeraldBotany.Data.Common.Repositories;
@@ -14,6 +13,9 @@
     using EmeraldBotany.Data.Seeding;
     using EmeraldBotany.Services.Data;
     using EmeraldBotany.Services.Messaging;
+
+    using CommandLine;
+
     using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
@@ -80,7 +82,6 @@
             // Application services
             services.AddTransient<IEmailSender, NullMessageSender>();
             services.AddTransient<ISettingsService, SettingsService>();
-            services.AddTransient<ITrefleService, TrefleService>();
         }
     }
 }

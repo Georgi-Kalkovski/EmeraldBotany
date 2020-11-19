@@ -1,27 +1,23 @@
 ﻿namespace EmeraldBotany.Data.Models
 {
-    using System;
-
-    using EmeraldBotany.Data.Common.Models;
-    using Newtonsoft.Json;
-
-    public class Sources : BaseDeletableModel<string>
+    public class Sources
     {
-        public Sources()
-        {
-            this.Id = Guid.NewGuid().ToString();
-        }
+        public string Id { get; set; }
 
-        [JsonProperty("citation")]
-        public string Citation { get; set; }
-
-        [JsonProperty("last_update")]
-        public string LastUpdate { get; set; }
-
-        [JsonProperty("name")]
         public string Name { get; set; }
 
-        [JsonProperty("url")]
+        public string Citation { get; set; }
+
         public string Url { get; set; }
+
+        public string Last_update { get; set; }
+
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
+
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties; }
+            set { _additionalProperties = value; }
+        }
     }
 }
