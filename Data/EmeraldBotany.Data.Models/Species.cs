@@ -1,16 +1,29 @@
 ﻿namespace EmeraldBotany.Data.Models
 {
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations.Schema;
+
+    using EmeraldBotany.Data.Common.Models;
     using EmeraldBotany.Data.Models.Enums;
 
-    public class Species
+    public class Species : BaseDeletableModel<int>
     {
-        public int Id { get; set; }
+        public Species()
+        {
+            this.Duration = new HashSet<Duration?>();
+            this.EdiblePart = new HashSet<EdiblePart?>();
+            this.CommonNames = new Dictionary<string, ICollection<string>>();
+            this.Synonyms = new HashSet<Synonyms>();
+            this.Sources = new HashSet<Sources>();
 
-        public string Common_name { get; set; }
+            // this.Distributions = new Dictionary<string, ICollection<string>>();
+        }
+
+        public string CommonName { get; set; }
 
         public string Slug { get; set; }
 
-        public string Scientific_name { get; set; }
+        public string ScientificName { get; set; }
 
         public int? Year { get; set; }
 
@@ -18,60 +31,70 @@
 
         public string Author { get; set; }
 
-        public SpeciesStatus Status { get; set; }
-
-        public SpeciesRank Rank { get; set; }
-
-        public string Family_common_name { get; set; }
+        public string FamilyCommonName { get; set; }
 
         public string Family { get; set; }
 
-        public int Genus_id { get; set; }
+        public int? GenusId { get; set; }
 
         public string Genus { get; set; }
 
-        public string Image_url { get; set; }
-
-        public Links10 Links { get; set; }
-
-        public System.Collections.Generic.ICollection<Duration?> Duration { get; set; }
-
-        public System.Collections.Generic.ICollection<Edible_part?> Edible_part { get; set; }
+        public string ImageUrl { get; set; }
 
         public bool? Vegetable { get; set; }
 
         public string Observations { get; set; }
 
+        public int? ImagesId { get; set; }
+
+        public int? FlowerId { get; set; }
+
+        public int? FoliageId { get; set; }
+
+        public int? FruitOrSeedId { get; set; }
+
+        public int? SpecificationsId { get; set; }
+
+        public int? GrowthId { get; set; }
+
         public Images Images { get; set; }
-
-        public System.Collections.Generic.IDictionary<string, System.Collections.Generic.ICollection<string>> Common_names { get; set; }
-
-        public System.Collections.Generic.IDictionary<string, System.Collections.Generic.ICollection<string>> Distribution { get; set; }
-
-        public Distributions Distributions { get; set; }
 
         public Flower Flower { get; set; }
 
         public Foliage Foliage { get; set; }
 
-        public Fruit_or_seed Fruit_or_seed { get; set; }
+        public FruitOrSeed FruitOrSeed { get; set; }
 
         public Specifications Specifications { get; set; }
 
         public Growth Growth { get; set; }
 
-        public System.Collections.Generic.ICollection<Synonyms> Synonyms { get; set; }
+        public SpeciesStatus Status { get; set; }
 
-        public System.Collections.Generic.ICollection<Sources> Sources { get; set; }
+        public SpeciesRank Rank { get; set; }
 
-        public object Extras { get; set; }
+        [NotMapped]
+        public virtual ICollection<Duration?> Duration { get; set; }
 
-        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
+        [NotMapped]
+        public virtual ICollection<EdiblePart?> EdiblePart { get; set; }
 
-        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
-        {
-            get { return _additionalProperties; }
-            set { _additionalProperties = value; }
-        }
+        public virtual ICollection<Synonyms> Synonyms { get; set; }
+
+        public virtual ICollection<Sources> Sources { get; set; }
+
+        [NotMapped]
+        public virtual IDictionary<string, ICollection<string>> CommonNames { get; set; }
+
+        // public int? DistributionsId { get; set; }
+
+        // public int? LinksId { get; set; }
+
+        // public Links Links { get; set; }
+
+        // public Distributions Distribution { get; set; }
+
+        /* [NotMapped]
+        public virtual IDictionary<string, ICollection<string>> Distributions { get; set; } */
     }
 }

@@ -1,17 +1,21 @@
 ﻿namespace EmeraldBotany.Data.Models
 {
-    public class Flower
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations.Schema;
+
+    using EmeraldBotany.Data.Common.Models;
+    using EmeraldBotany.Data.Models.Enums;
+
+    public class Flower : BaseDeletableModel<int>
     {
-        public System.Collections.Generic.ICollection<Color?> Color { get; set; }
+        public Flower()
+        {
+            this.Color = new HashSet<Color?>();
+        }
 
         public bool? Conspicuous { get; set; }
 
-        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
-
-        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
-        {
-            get { return _additionalProperties; }
-            set { _additionalProperties = value; }
-        }
+        [NotMapped]
+        public virtual ICollection<Color?> Color { get; set; }
     }
 }

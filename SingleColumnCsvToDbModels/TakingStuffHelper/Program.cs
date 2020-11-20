@@ -14,30 +14,15 @@ namespace TakingStuffHelper
             using (TextFieldParser parser = new TextFieldParser(@"C:\Users\Smiley\Desktop\species.csv"))
             {
                 parser.TextFieldType = FieldType.Delimited;
-                parser.SetDelimiters(",");
+                parser.SetDelimiters("\t");
 
                 var list = new List<string[]>();
 
                 while (!parser.EndOfData)
                 {
-                    var sb = new StringBuilder();
-
                     //Processing row
-                    string[] fields = parser.ReadFields();
-                    for (int row= 0 ; row < fields.Length-1;)
-                    {
-                        var col = fields[row].Split("\t").ToArray();
-                        foreach (var id in col)
-                        {
-                            sb.Append($"{id} ");
-                        }
-                        list.Add(col);
-                        sb.AppendLine();
-
-                        Console.WriteLine(sb.ToString());
-                        row++;
-                        break;
-                    }
+                    string[] row = parser.ReadFields();
+                    list.Add(row);
                 }
             }
         }

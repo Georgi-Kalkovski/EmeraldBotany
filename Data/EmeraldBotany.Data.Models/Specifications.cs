@@ -1,31 +1,30 @@
 ﻿namespace EmeraldBotany.Data.Models
 {
-    public class Specifications
+    using EmeraldBotany.Data.Common.Models;
+    using EmeraldBotany.Data.Models.Enums;
+
+    public class Specifications : BaseDeletableModel<int>
     {
-        public SpecificationsLigneous_type? Ligneous_type { get; set; }
+        public string GrowthForm { get; set; }
 
-        public string Growth_form { get; set; }
+        public string GrowthHabit { get; set; }
 
-        public string Growth_habit { get; set; }
+        public string GrowthRate { get; set; }
 
-        public string Growth_rate { get; set; }
+        public string NitrogenFixation { get; set; }
 
-        public Average_height Average_height { get; set; }
+        public string ShapeAndOrientation { get; set; }
 
-        public Maximum_height Maximum_height { get; set; }
+        public int? AverageHeightId { get; set; }
 
-        public string Nitrogen_fixation { get; set; }
+        public int? MaximumHeightId { get; set; }
 
-        public string Shape_and_orientation { get; set; }
+        public virtual AverageHeight AverageHeight { get; set; }
+
+        public virtual MaximumHeight MaximumHeight { get; set; }
+
+        public SpecificationsLigneousType? LigneousType { get; set; }
 
         public SpecificationsToxicity? Toxicity { get; set; }
-
-        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
-
-        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
-        {
-            get { return _additionalProperties; }
-            set { _additionalProperties = value; }
-        }
     }
 }

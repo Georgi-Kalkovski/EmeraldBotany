@@ -2,7 +2,7 @@
 {
     using EmeraldBotany.Data.Common.Models;
 
-    public class Spread : BaseDeletableModel<int>
+    public class RowSpacing : BaseDeletableModel<int>
     {
         public double? Cm { get; set; }
     }

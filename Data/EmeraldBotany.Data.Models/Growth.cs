@@ -1,56 +1,77 @@
 ﻿namespace EmeraldBotany.Data.Models
 {
-    public class Growth
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations.Schema;
+
+    using EmeraldBotany.Data.Common.Models;
+    using EmeraldBotany.Data.Models.Enums;
+
+    public class Growth : BaseDeletableModel<int>
     {
-        public double? Days_to_harvest { get; set; }
+        public Growth()
+        {
+            this.GrowthMonths = new HashSet<GrowthMonths?>();
+            this.BloomMonths = new HashSet<BloomMonths?>();
+            this.FruitMonths = new HashSet<FruitMonths?>();
+        }
+
+        public double? DaysToHarvest { get; set; }
 
         public string Description { get; set; }
 
         public string Sowing { get; set; }
 
-        public double? Ph_maximum { get; set; }
+        public double? PhMaximum { get; set; }
 
-        public double? Ph_minimum { get; set; }
+        public double? PhMinimum { get; set; }
 
         public int? Light { get; set; }
 
-        public int? Atmospheric_humidity { get; set; }
+        public int? AtmosphericHumidity { get; set; }
 
-        public System.Collections.Generic.ICollection<Growth_months?> Growth_months { get; set; }
+        public int? SoilNutriments { get; set; }
 
-        public System.Collections.Generic.ICollection<Bloom_months?> Bloom_months { get; set; }
+        public int? SoilSalinity { get; set; }
 
-        public System.Collections.Generic.ICollection<Fruit_months?> Fruit_months { get; set; }
+        public int? SoilTexture { get; set; }
 
-        public Row_spacing Row_spacing { get; set; }
+        public int? SoilHumidity { get; set; }
+
+        public int? RowSpacingId { get; set; }
+
+        public int? SpreadId { get; set; }
+
+        public int? MinimumPrecipitationId { get; set; }
+
+        public int? MaximumPrecipitationId { get; set; }
+
+        public int? MinimumRootDepthId { get; set; }
+
+        public int? MinimumTemperatureId { get; set; }
+
+        public int? MaximumTemperatureId { get; set; }
+
+        public RowSpacing RowSpacing { get; set; }
 
         public Spread Spread { get; set; }
 
-        public Minimum_precipitation Minimum_precipitation { get; set; }
+        public MinimumPrecipitation MinimumPrecipitation { get; set; }
 
-        public Maximum_precipitation Maximum_precipitation { get; set; }
+        public MaximumPrecipitation MaximumPrecipitation { get; set; }
 
-        public Minimum_root_depth Minimum_root_depth { get; set; }
+        public MinimumRootDepth MinimumRootDepth { get; set; }
 
-        public Minimum_temperature Minimum_temperature { get; set; }
+        public MinimumTemperature MinimumTemperature { get; set; }
 
-        public Maximum_temperature Maximum_temperature { get; set; }
+        public MaximumTemperature MaximumTemperature { get; set; }
 
-        public int? Soil_nutriments { get; set; }
+        [NotMapped]
+        public virtual ICollection<GrowthMonths?> GrowthMonths { get; set; }
 
-        public int? Soil_salinity { get; set; }
+        [NotMapped]
+        public virtual ICollection<BloomMonths?> BloomMonths { get; set; }
 
-        public int? Soil_texture { get; set; }
-
-        public int? Soil_humidity { get; set; }
-
-        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
-
-        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
-        {
-            get { return _additionalProperties; }
-            set { _additionalProperties = value; }
-        }
-
+        [NotMapped]
+        public virtual ICollection<FruitMonths?> FruitMonths { get; set; }
     }
 }

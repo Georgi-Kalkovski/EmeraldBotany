@@ -1,25 +1,31 @@
 ﻿namespace EmeraldBotany.Data.Models
 {
-    public class Images
+    using System.Collections.Generic;
+
+    using EmeraldBotany.Data.Common.Models;
+
+    public class Images : BaseDeletableModel<int>
     {
-        public System.Collections.Generic.ICollection<Flower2> Flower { get; set; }
-
-        public System.Collections.Generic.ICollection<Leaf> Leaf { get; set; }
-
-        public System.Collections.Generic.ICollection<Habit> Habit { get; set; }
-
-        public System.Collections.Generic.ICollection<Fruit> Fruit { get; set; }
-
-        public System.Collections.Generic.ICollection<Bark> Bark { get; set; }
-
-        public System.Collections.Generic.ICollection<Other> Other { get; set; }
-
-        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
-
-        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        public Images()
         {
-            get { return _additionalProperties; }
-            set { _additionalProperties = value; }
+            this.Flower = new HashSet<Flower>();
+            this.Leaf = new HashSet<Leaf>();
+            this.Habit = new HashSet<Habit>();
+            this.Fruit = new HashSet<Fruit>();
+            this.Bark = new HashSet<Bark>();
+            this.Other = new HashSet<Other>();
         }
+
+        public virtual ICollection<Flower> Flower { get; set; }
+
+        public virtual ICollection<Leaf> Leaf { get; set; }
+
+        public virtual ICollection<Habit> Habit { get; set; }
+
+        public virtual ICollection<Fruit> Fruit { get; set; }
+
+        public virtual ICollection<Bark> Bark { get; set; }
+
+        public virtual ICollection<Other> Other { get; set; }
     }
 }

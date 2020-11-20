@@ -1,49 +1,44 @@
-﻿using EmeraldBotany.Data;
-using EmeraldBotany.Data.Models;
-using EmeraldBotany.Data.Seeding;
-using Microsoft.VisualBasic.FileIO;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace EmeraldBotany.Services.Data
+﻿namespace EmeraldBotany.Data.Seeding
 {
-    public class SpeciesSeeder : ISeeder
+    using System;
+    using System.Threading.Tasks;
+
+    using EmeraldBotany.Data.Models;
+    using Microsoft.VisualBasic.FileIO;
+
+    internal class SpeciesSeeder : ISeeder
     {
-        static async Task SeederAsync()
-        {
-            using (TextFieldParser parser = new TextFieldParser(@"C:\Users\Smiley\Desktop\TakingStuffHelper\TakingStuffHelper\Materials\species.csv"))
-            {
-                parser.TextFieldType = FieldType.Delimited;
-                parser.SetDelimiters(",");
-
-                var list = new List<string[]>();
-
-                while (!parser.EndOfData)
-                {
-
-                    // Processing row
-                    string[] fields = parser.ReadFields();
-                    for (int row = 0; row < fields.Length - 1;)
-                    {
-                        var col = fields[row].Split("\t").ToArray();
-                        list.Add(col);
-                        row++;
-                        break;
-                    }
-                }
-            }
-        }
-
         public async Task SeedAsync(ApplicationDbContext dbContext, IServiceProvider serviceProvider)
         {
-            if (dbContext.Settings.Any())
-            {
-                return;
-            }
+            //if (dbContext.Species.Any())
+            //{
+            //    return;
+            //}
 
-            //await dbContext.Settings.AddAsync(new Species { Name = "Setting1", Value = "value1" });
+            TextFieldParser parser = new TextFieldParser(@"C:\Users\Smiley\Desktop\species.csv");
+            parser.TextFieldType = FieldType.Delimited;
+            parser.SetDelimiters("\t");
+
+            // while (!parser.EndOfData)
+            while (!parser.EndOfData)
+            {
+                // Processing row
+                string[] fields = parser.ReadFields();
+
+                await dbContext.Species.AddAsync(new Species
+                {
+                    CommonName = fields[8],
+                    ScientificName = fields[1],
+                    Year = int.Parse(fields[5]),
+                    Bibliography = fields[7],
+                    Author = fields[6],
+                    FamilyCommonName = fields[9],
+                    Family = fields[4],
+                    Genus = fields[3],
+                    ImageUrl = fields[10],
+                    Vegetable = bool.Parse(fields[25]),
+                });
+            }
         }
     }
 }

@@ -6,16 +6,18 @@
     using EmeraldBotany.Data.Common.Models;
     using EmeraldBotany.Data.Models.Enums;
 
-    public class Foliage : BaseDeletableModel<int>
+    public class FruitOrSeed : BaseDeletableModel<int>
     {
-        public Foliage()
+        public FruitOrSeed()
         {
             this.Color = new HashSet<Color?>();
         }
 
-        public bool? LeafRetention { get; set; }
+        public bool? Conspicuous { get; set; }
 
-        public FoliageTexture? Texture { get; set; }
+        public string Shape { get; set; }
+
+        public bool? SeedPersistence { get; set; }
 
         [NotMapped]
         public virtual ICollection<Color?> Color { get; set; }

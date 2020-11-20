@@ -2,8 +2,8 @@
 {
     using EmeraldBotany.Data.Common.Models;
 
-    public class Spread : BaseDeletableModel<int>
+    public class MaximumHeight : BaseDeletableModel<int>
     {
-        public double? Cm { get; set; }
+        public int? Cm { get; set; }
     }
 }

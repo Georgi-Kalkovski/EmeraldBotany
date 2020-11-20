@@ -26,6 +26,69 @@
 
         public DbSet<Setting> Settings { get; set; }
 
+        public DbSet<AverageHeight> AverageHeights { get; set; }
+
+        public DbSet<Bark> Barks { get; set; }
+
+        public DbSet<Flower> Flowers { get; set; }
+
+        public DbSet<Foliage> Foliages { get; set; }
+
+        public DbSet<Fruit> Fruits { get; set; }
+
+        public DbSet<FruitOrSeed> FruitsOrSeeds { get; set; }
+
+        public DbSet<Growth> Growths { get; set; }
+
+        public DbSet<Habit> Habits { get; set; }
+
+        public DbSet<Images> Images { get; set; }
+
+        public DbSet<Leaf> Leafs { get; set; }
+
+        public DbSet<MaximumHeight> MaximumHeights { get; set; }
+
+        public DbSet<MaximumPrecipitation> MaximumPrecipitations { get; set; }
+
+        public DbSet<MaximumTemperature> MaximumTemperatures { get; set; }
+
+        public DbSet<MinimumPrecipitation> MinimumPrecipitations { get; set; }
+
+        public DbSet<MinimumRootDepth> MinimumRootDepths { get; set; }
+
+        public DbSet<MinimumTemperature> MinimumTemperatures { get; set; }
+
+        public DbSet<Other> Others { get; set; }
+
+        public DbSet<Plant> Plants { get; set; }
+
+        public DbSet<RowSpacing> RowSpacings { get; set; }
+
+        public DbSet<Source> Source { get; set; }
+
+        public DbSet<Sources> Sources { get; set; }
+
+        public DbSet<Species> Species { get; set; }
+
+        public DbSet<Specifications> Specifications { get; set; }
+
+        public DbSet<Spread> Spreads { get; set; }
+
+        public DbSet<Synonyms> Synonyms { get; set; }
+
+        // public DbSet<Absent> Absents { get; set; }
+
+        // public DbSet<Distributions> Distributions { get; set; }
+
+        // public DbSet<Doubtful> Doubtfuls { get; set; }
+
+        // public DbSet<Extinct> Extincts { get; set; }
+
+        // public DbSet<Introduced> Introduceds { get; set; }
+
+        // public DbSet<Links> Links { get; set; }
+
+        // public DbSet<Native> Natives { get; set; }
         public override int SaveChanges() => this.SaveChanges(true);
 
         public override int SaveChanges(bool acceptAllChangesOnSuccess)
