@@ -76,6 +76,8 @@
 
         public DbSet<Synonyms> Synonyms { get; set; }
 
+        public DbSet<SpeciesDataDump> SpeciesDataDump { get; set; }
+
         // public DbSet<Absent> Absents { get; set; }
 
         // public DbSet<Distributions> Distributions { get; set; }
