@@ -30,7 +30,7 @@
 <body>
 
     <!-- ======= Header ======= -->
-    <header id="header" >
+    <header id="header">
         <div class="container-fluid">
 
             <div class="row justify-content-center">
@@ -42,7 +42,7 @@
                     <nav class="nav-menu d-none d-lg-block">
                         <ul>
                             <li><a asp-controller="Home" asp-action="Index">Home</a></li>
-                            <li><a asp-controller="Species" asp-action="Index">Species</a></li>
+                            <li><a asp-controller="Explores" asp-action="Index">Explore</a></li>
                             <li class="drop-down">
                                 <a href="">Categories</a>
                                 <ul>
@@ -72,7 +72,7 @@
 
     <div class="container position-relative">
         <partial name="_CookieConsentPartial" />
-        <main role="main" >
+        <main>
             @this.RenderBody()
         </main>
     </div>

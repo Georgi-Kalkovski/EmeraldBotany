@@ -6,11 +6,11 @@
     using EmeraldBotany.Data.Models;
     using EmeraldBotany.Services.Mapping;
 
-    public class SpeciesService : ISpeciesService
+    public class ExploresService : IExploresService
     {
         private readonly IRepository<SpeciesDataDump> repository;
 
-        public SpeciesService(IRepository<SpeciesDataDump> repository)
+        public ExploresService(IRepository<SpeciesDataDump> repository)
         {
             this.repository = repository;
         }

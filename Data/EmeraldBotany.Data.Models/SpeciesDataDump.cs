@@ -1,6 +1,5 @@
 ﻿namespace EmeraldBotany.Data.Models
 {
-    using EmeraldBotany.Data.Common.Models;
 
     public partial class SpeciesDataDump
     {

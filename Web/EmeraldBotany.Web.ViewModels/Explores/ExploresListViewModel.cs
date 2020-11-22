@@ -3,8 +3,8 @@
     using EmeraldBotany.Data.Models;
     using System.Collections.Generic;
 
-    public class SpeciesListViewModel
+    public class ExploresListViewModel
     {
-        public IEnumerable<SpecieViewModel> Species { get; set; }
+        public IEnumerable<ExploreViewModel> Explores { get; set; }
     }
 }

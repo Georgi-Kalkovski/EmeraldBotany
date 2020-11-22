@@ -11,21 +11,21 @@
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.EntityFrameworkCore;
 
-    public class SpeciesController : Controller
+    public class ExploresController : Controller
     {
-        private readonly ISpeciesService speciesService;
+        private readonly IExploresService exploresService;
         private readonly IRepository<SpeciesDataDump> repository;
 
-        public SpeciesController(ISpeciesService speciesService, IRepository<SpeciesDataDump> repository)
+        public ExploresController(IExploresService exploresService, IRepository<SpeciesDataDump> repository)
         {
-            this.speciesService = speciesService;
+            this.exploresService = exploresService;
             this.repository = repository;
         }
 
         public IActionResult Index()
         {
-            var species = this.speciesService.GetAll<SpecieViewModel>();
-            var model = new SpeciesListViewModel { Species = species };
+            var explores = this.exploresService.GetAll<ExploreViewModel>();
+            var model = new ExploresListViewModel { Explores = explores };
             return this.View(model);
         }
     }

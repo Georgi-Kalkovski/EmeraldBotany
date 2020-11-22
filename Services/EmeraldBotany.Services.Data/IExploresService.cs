@@ -2,7 +2,7 @@
 {
     using System.Collections.Generic;
 
-    public interface ISpeciesService
+    public interface IExploresService
     {
         int GetCount();
 
