@@ -2,6 +2,8 @@
 {
     using System.Diagnostics;
 
+    using EmeraldBotany.Data.Common.Repositories;
+    using EmeraldBotany.Data.Models;
     using EmeraldBotany.Services.Data;
     using EmeraldBotany.Web.ViewModels;
     using Microsoft.AspNetCore.Mvc;
@@ -9,10 +11,14 @@
     public class HomeController : BaseController
     {
         private readonly IGetCountsService getCountsService;
+        private readonly IUploadDatabaseService uploadDatabase;
+        private readonly IDeletableEntityRepository<Plant> repository;
 
-        public HomeController(IGetCountsService getCountsService)
+        public HomeController(IGetCountsService getCountsService, IUploadDatabaseService uploadDatabase, IDeletableEntityRepository<Plant> repository)
         {
             this.getCountsService = getCountsService;
+            this.uploadDatabase = uploadDatabase;
+            this.repository = repository;
         }
 
         public IActionResult Index()

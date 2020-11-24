@@ -8,6 +8,7 @@
     using EmeraldBotany.Data.Models;
     using EmeraldBotany.Data.Repositories;
     using EmeraldBotany.Data.Seeding;
+    using EmeraldBotany.Services;
     using EmeraldBotany.Services.Data;
     using EmeraldBotany.Services.Mapping;
     using EmeraldBotany.Services.Messaging;
@@ -66,7 +67,7 @@
             services.AddTransient<ISettingsService, SettingsService>();
             services.AddTransient<IExploresService, ExploresService>();
             services.AddTransient<IGetCountsService, GetCountsService>();
-            services.AddSwaggerGen();
+            services.AddTransient<IUploadDatabaseService, UploadDatabaseService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -109,9 +110,6 @@
                         endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
                         endpoints.MapRazorPages();
                     });
-
-            app.UseSwagger();
-            app.UseSwaggerUI();
         }
     }
 }

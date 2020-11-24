@@ -1,6 +1,4 @@
-﻿using Grpc.Core;
-using Microsoft.AspNetCore.Http;
-using Microsoft.VisualBasic.FileIO;
+﻿using Microsoft.VisualBasic.FileIO;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -19,14 +17,14 @@ namespace TakingStuffHelper
                 string extractPath = @"..\..\..\..\..\Materials";
                 ZipFile.ExtractToDirectory(zipPath, extractPath);
             }
-            using (TextFieldParser parser = new TextFieldParser(@"\species.csv"))
+            using (TextFieldParser parser = new TextFieldParser(@"..\..\..\..\..\Materials\species.csv"))
             {
                 parser.TextFieldType = FieldType.Delimited;
                 parser.SetDelimiters("\t");
 
                 var list = new List<string[]>();
-
-                while (!parser.EndOfData)
+                var counter = 0;
+                while (!parser.EndOfData && counter != 10)
                 {
                     //Processing row
                     string[] row = parser.ReadFields();
@@ -35,7 +33,7 @@ namespace TakingStuffHelper
                     {
                         Console.WriteLine(id);
                     }
-
+                    counter++;
                     Console.WriteLine("-----------------------------NEW ------------------------------");
                 }
             }
