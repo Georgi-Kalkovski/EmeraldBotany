@@ -1,8 +1,9 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
-
-namespace EmeraldBotany.Data.Migrations
+﻿namespace EmeraldBotany.Data.Migrations
 {
+    using System;
+
+    using Microsoft.EntityFrameworkCore.Migrations;
+
     public partial class FirstMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -18,7 +19,7 @@ namespace EmeraldBotany.Data.Migrations
                     CreatedOn = table.Column<DateTime>(nullable: false),
                     ModifiedOn = table.Column<DateTime>(nullable: true),
                     IsDeleted = table.Column<bool>(nullable: false),
-                    DeletedOn = table.Column<DateTime>(nullable: true)
+                    DeletedOn = table.Column<DateTime>(nullable: true),
                 },
                 constraints: table =>
                 {
@@ -47,7 +48,7 @@ namespace EmeraldBotany.Data.Migrations
                     CreatedOn = table.Column<DateTime>(nullable: false),
                     ModifiedOn = table.Column<DateTime>(nullable: true),
                     IsDeleted = table.Column<bool>(nullable: false),
-                    DeletedOn = table.Column<DateTime>(nullable: true)
+                    DeletedOn = table.Column<DateTime>(nullable: true),
                 },
                 constraints: table =>
                 {
@@ -64,7 +65,7 @@ namespace EmeraldBotany.Data.Migrations
                     ModifiedOn = table.Column<DateTime>(nullable: true),
                     IsDeleted = table.Column<bool>(nullable: false),
                     DeletedOn = table.Column<DateTime>(nullable: true),
-                    Cm = table.Column<int>(nullable: true)
+                    Cm = table.Column<int>(nullable: true),
                 },
                 constraints: table =>
                 {
@@ -80,7 +81,7 @@ namespace EmeraldBotany.Data.Migrations
                     CreatedOn = table.Column<DateTime>(nullable: false),
                     ModifiedOn = table.Column<DateTime>(nullable: true),
                     IsDeleted = table.Column<bool>(nullable: false),
-                    DeletedOn = table.Column<DateTime>(nullable: true)
+                    DeletedOn = table.Column<DateTime>(nullable: true),
                 },
                 constraints: table =>
                 {
@@ -98,7 +99,7 @@ namespace EmeraldBotany.Data.Migrations
                     IsDeleted = table.Column<bool>(nullable: false),
                     DeletedOn = table.Column<DateTime>(nullable: true),
                     LeafRetention = table.Column<bool>(nullable: true),
-                    Texture = table.Column<int>(nullable: true)
+                    Texture = table.Column<int>(nullable: true),
                 },
                 constraints: table =>
                 {
@@ -117,7 +118,7 @@ namespace EmeraldBotany.Data.Migrations
                     DeletedOn = table.Column<DateTime>(nullable: true),
                     Conspicuous = table.Column<bool>(nullable: true),
                     Shape = table.Column<string>(nullable: true),
-                    SeedPersistence = table.Column<bool>(nullable: true)
+                    SeedPersistence = table.Column<bool>(nullable: true),
                 },
                 constraints: table =>
                 {
@@ -133,7 +134,7 @@ namespace EmeraldBotany.Data.Migrations
                     CreatedOn = table.Column<DateTime>(nullable: false),
                     ModifiedOn = table.Column<DateTime>(nullable: true),
                     IsDeleted = table.Column<bool>(nullable: false),
-                    DeletedOn = table.Column<DateTime>(nullable: true)
+                    DeletedOn = table.Column<DateTime>(nullable: true),
                 },
                 constraints: table =>
                 {
@@ -152,7 +153,7 @@ namespace EmeraldBotany.Data.Migrations
                     DeletedOn = table.Column<DateTime>(nullable: true),
                     Self = table.Column<string>(nullable: true),
                     Genus = table.Column<string>(nullable: true),
-                    Entity = table.Column<string>(nullable: true)
+                    Entity = table.Column<string>(nullable: true),
                 },
                 constraints: table =>
                 {
@@ -169,7 +170,7 @@ namespace EmeraldBotany.Data.Migrations
                     ModifiedOn = table.Column<DateTime>(nullable: true),
                     IsDeleted = table.Column<bool>(nullable: false),
                     DeletedOn = table.Column<DateTime>(nullable: true),
-                    Cm = table.Column<int>(nullable: true)
+                    Cm = table.Column<int>(nullable: true),
                 },
                 constraints: table =>
                 {
@@ -186,7 +187,7 @@ namespace EmeraldBotany.Data.Migrations
                     ModifiedOn = table.Column<DateTime>(nullable: true),
                     IsDeleted = table.Column<bool>(nullable: false),
                     DeletedOn = table.Column<DateTime>(nullable: true),
-                    Mm = table.Column<double>(nullable: true)
+                    Mm = table.Column<double>(nullable: true),
                 },
                 constraints: table =>
                 {
@@ -204,7 +205,7 @@ namespace EmeraldBotany.Data.Migrations
                     IsDeleted = table.Column<bool>(nullable: false),
                     DeletedOn = table.Column<DateTime>(nullable: true),
                     DegF = table.Column<double>(nullable: true),
-                    DegC = table.Column<double>(nullable: true)
+                    DegC = table.Column<double>(nullable: true),
                 },
                 constraints: table =>
                 {
@@ -221,7 +222,7 @@ namespace EmeraldBotany.Data.Migrations
                     ModifiedOn = table.Column<DateTime>(nullable: true),
                     IsDeleted = table.Column<bool>(nullable: false),
                     DeletedOn = table.Column<DateTime>(nullable: true),
-                    Mm = table.Column<double>(nullable: true)
+                    Mm = table.Column<double>(nullable: true),
                 },
                 constraints: table =>
                 {
@@ -238,7 +239,7 @@ namespace EmeraldBotany.Data.Migrations
                     ModifiedOn = table.Column<DateTime>(nullable: true),
                     IsDeleted = table.Column<bool>(nullable: false),
                     DeletedOn = table.Column<DateTime>(nullable: true),
-                    Cm = table.Column<double>(nullable: true)
+                    Cm = table.Column<double>(nullable: true),
                 },
                 constraints: table =>
                 {
@@ -256,7 +257,7 @@ namespace EmeraldBotany.Data.Migrations
                     IsDeleted = table.Column<bool>(nullable: false),
                     DeletedOn = table.Column<DateTime>(nullable: true),
                     DegF = table.Column<double>(nullable: true),
-                    DegC = table.Column<double>(nullable: true)
+                    DegC = table.Column<double>(nullable: true),
                 },
                 constraints: table =>
                 {
@@ -273,7 +274,7 @@ namespace EmeraldBotany.Data.Migrations
                     ModifiedOn = table.Column<DateTime>(nullable: true),
                     IsDeleted = table.Column<bool>(nullable: false),
                     DeletedOn = table.Column<DateTime>(nullable: true),
-                    Cm = table.Column<double>(nullable: true)
+                    Cm = table.Column<double>(nullable: true),
                 },
                 constraints: table =>
                 {
@@ -291,7 +292,7 @@ namespace EmeraldBotany.Data.Migrations
                     IsDeleted = table.Column<bool>(nullable: false),
                     DeletedOn = table.Column<DateTime>(nullable: true),
                     Name = table.Column<string>(nullable: true),
-                    Value = table.Column<string>(nullable: true)
+                    Value = table.Column<string>(nullable: true),
                 },
                 constraints: table =>
                 {
@@ -308,7 +309,7 @@ namespace EmeraldBotany.Data.Migrations
                     ModifiedOn = table.Column<DateTime>(nullable: true),
                     IsDeleted = table.Column<bool>(nullable: false),
                     DeletedOn = table.Column<DateTime>(nullable: true),
-                    Cm = table.Column<double>(nullable: true)
+                    Cm = table.Column<double>(nullable: true),
                 },
                 constraints: table =>
                 {
@@ -323,7 +324,7 @@ namespace EmeraldBotany.Data.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     RoleId = table.Column<string>(nullable: false),
                     ClaimType = table.Column<string>(nullable: true),
-                    ClaimValue = table.Column<string>(nullable: true)
+                    ClaimValue = table.Column<string>(nullable: true),
                 },
                 constraints: table =>
                 {
@@ -344,7 +345,7 @@ namespace EmeraldBotany.Data.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     UserId = table.Column<string>(nullable: false),
                     ClaimType = table.Column<string>(nullable: true),
-                    ClaimValue = table.Column<string>(nullable: true)
+                    ClaimValue = table.Column<string>(nullable: true),
                 },
                 constraints: table =>
                 {
@@ -364,7 +365,7 @@ namespace EmeraldBotany.Data.Migrations
                     LoginProvider = table.Column<string>(nullable: false),
                     ProviderKey = table.Column<string>(nullable: false),
                     ProviderDisplayName = table.Column<string>(nullable: true),
-                    UserId = table.Column<string>(nullable: false)
+                    UserId = table.Column<string>(nullable: false),
                 },
                 constraints: table =>
                 {
@@ -382,7 +383,7 @@ namespace EmeraldBotany.Data.Migrations
                 columns: table => new
                 {
                     UserId = table.Column<string>(nullable: false),
-                    RoleId = table.Column<string>(nullable: false)
+                    RoleId = table.Column<string>(nullable: false),
                 },
                 constraints: table =>
                 {
@@ -408,7 +409,7 @@ namespace EmeraldBotany.Data.Migrations
                     UserId = table.Column<string>(nullable: false),
                     LoginProvider = table.Column<string>(nullable: false),
                     Name = table.Column<string>(nullable: false),
-                    Value = table.Column<string>(nullable: true)
+                    Value = table.Column<string>(nullable: true),
                 },
                 constraints: table =>
                 {
@@ -433,7 +434,7 @@ namespace EmeraldBotany.Data.Migrations
                     DeletedOn = table.Column<DateTime>(nullable: true),
                     ImageUrl = table.Column<string>(nullable: true),
                     Copyright = table.Column<string>(nullable: true),
-                    ImagesId = table.Column<int>(nullable: true)
+                    ImagesId = table.Column<int>(nullable: true),
                 },
                 constraints: table =>
                 {
@@ -457,7 +458,7 @@ namespace EmeraldBotany.Data.Migrations
                     IsDeleted = table.Column<bool>(nullable: false),
                     DeletedOn = table.Column<DateTime>(nullable: true),
                     Conspicuous = table.Column<bool>(nullable: true),
-                    ImagesId = table.Column<int>(nullable: true)
+                    ImagesId = table.Column<int>(nullable: true),
                 },
                 constraints: table =>
                 {
@@ -482,7 +483,7 @@ namespace EmeraldBotany.Data.Migrations
                     DeletedOn = table.Column<DateTime>(nullable: true),
                     ImageUrl = table.Column<string>(nullable: true),
                     Copyright = table.Column<string>(nullable: true),
-                    ImagesId = table.Column<int>(nullable: true)
+                    ImagesId = table.Column<int>(nullable: true),
                 },
                 constraints: table =>
                 {
@@ -507,7 +508,7 @@ namespace EmeraldBotany.Data.Migrations
                     DeletedOn = table.Column<DateTime>(nullable: true),
                     ImageUrl = table.Column<string>(nullable: true),
                     Copyright = table.Column<string>(nullable: true),
-                    ImagesId = table.Column<int>(nullable: true)
+                    ImagesId = table.Column<int>(nullable: true),
                 },
                 constraints: table =>
                 {
@@ -532,7 +533,7 @@ namespace EmeraldBotany.Data.Migrations
                     DeletedOn = table.Column<DateTime>(nullable: true),
                     ImageUrl = table.Column<string>(nullable: true),
                     Copyright = table.Column<string>(nullable: true),
-                    ImagesId = table.Column<int>(nullable: true)
+                    ImagesId = table.Column<int>(nullable: true),
                 },
                 constraints: table =>
                 {
@@ -557,7 +558,7 @@ namespace EmeraldBotany.Data.Migrations
                     DeletedOn = table.Column<DateTime>(nullable: true),
                     ImageUrl = table.Column<string>(nullable: true),
                     Copyright = table.Column<string>(nullable: true),
-                    ImagesId = table.Column<int>(nullable: true)
+                    ImagesId = table.Column<int>(nullable: true),
                 },
                 constraints: table =>
                 {
@@ -586,7 +587,7 @@ namespace EmeraldBotany.Data.Migrations
                     TdwgLevel = table.Column<int>(nullable: false),
                     SpeciesCount = table.Column<int>(nullable: false),
                     LinksId = table.Column<int>(nullable: true),
-                    DistributionsId = table.Column<int>(nullable: true)
+                    DistributionsId = table.Column<int>(nullable: true),
                 },
                 constraints: table =>
                 {
@@ -621,7 +622,7 @@ namespace EmeraldBotany.Data.Migrations
                     TdwgLevel = table.Column<int>(nullable: false),
                     SpeciesCount = table.Column<int>(nullable: false),
                     LinksId = table.Column<int>(nullable: true),
-                    DistributionsId = table.Column<int>(nullable: true)
+                    DistributionsId = table.Column<int>(nullable: true),
                 },
                 constraints: table =>
                 {
@@ -656,7 +657,7 @@ namespace EmeraldBotany.Data.Migrations
                     TdwgLevel = table.Column<int>(nullable: false),
                     SpeciesCount = table.Column<int>(nullable: false),
                     LinksId = table.Column<int>(nullable: true),
-                    DistributionsId = table.Column<int>(nullable: true)
+                    DistributionsId = table.Column<int>(nullable: true),
                 },
                 constraints: table =>
                 {
@@ -691,7 +692,7 @@ namespace EmeraldBotany.Data.Migrations
                     TdwgLevel = table.Column<int>(nullable: false),
                     Species_count = table.Column<int>(nullable: false),
                     LinksId = table.Column<int>(nullable: true),
-                    DistributionsId = table.Column<int>(nullable: true)
+                    DistributionsId = table.Column<int>(nullable: true),
                 },
                 constraints: table =>
                 {
@@ -726,7 +727,7 @@ namespace EmeraldBotany.Data.Migrations
                     TdwgLevel = table.Column<int>(nullable: false),
                     SpeciesCount = table.Column<int>(nullable: false),
                     LinksId = table.Column<int>(nullable: true),
-                    DistributionsId = table.Column<int>(nullable: true)
+                    DistributionsId = table.Column<int>(nullable: true),
                 },
                 constraints: table =>
                 {
@@ -763,7 +764,7 @@ namespace EmeraldBotany.Data.Migrations
                     AverageHeightId = table.Column<int>(nullable: true),
                     MaximumHeightId = table.Column<int>(nullable: true),
                     LigneousType = table.Column<int>(nullable: true),
-                    Toxicity = table.Column<int>(nullable: true)
+                    Toxicity = table.Column<int>(nullable: true),
                 },
                 constraints: table =>
                 {
@@ -809,7 +810,7 @@ namespace EmeraldBotany.Data.Migrations
                     MaximumPrecipitationId = table.Column<int>(nullable: true),
                     MinimumRootDepthId = table.Column<int>(nullable: true),
                     MinimumTemperatureId = table.Column<int>(nullable: true),
-                    MaximumTemperatureId = table.Column<int>(nullable: true)
+                    MaximumTemperatureId = table.Column<int>(nullable: true),
                 },
                 constraints: table =>
                 {
@@ -889,7 +890,7 @@ namespace EmeraldBotany.Data.Migrations
                     LinksId = table.Column<int>(nullable: true),
                     ImagesId = table.Column<int>(nullable: true),
                     Rank = table.Column<int>(nullable: false),
-                    Status = table.Column<int>(nullable: false)
+                    Status = table.Column<int>(nullable: false),
                 },
                 constraints: table =>
                 {
@@ -965,7 +966,7 @@ namespace EmeraldBotany.Data.Migrations
                     Vegetable = table.Column<bool>(nullable: true),
                     Observations = table.Column<string>(nullable: true),
                     SpeciesId = table.Column<int>(nullable: true),
-                    LinksId = table.Column<int>(nullable: true)
+                    LinksId = table.Column<int>(nullable: true),
                 },
                 constraints: table =>
                 {
@@ -998,7 +999,7 @@ namespace EmeraldBotany.Data.Migrations
                     Citation = table.Column<string>(nullable: true),
                     Url = table.Column<string>(nullable: true),
                     LastUpdate = table.Column<string>(nullable: true),
-                    SpeciesId = table.Column<int>(nullable: true)
+                    SpeciesId = table.Column<int>(nullable: true),
                 },
                 constraints: table =>
                 {
@@ -1023,7 +1024,7 @@ namespace EmeraldBotany.Data.Migrations
                     DeletedOn = table.Column<DateTime>(nullable: true),
                     Name = table.Column<string>(nullable: true),
                     Author = table.Column<string>(nullable: true),
-                    SpeciesId = table.Column<int>(nullable: true)
+                    SpeciesId = table.Column<int>(nullable: true),
                 },
                 constraints: table =>
                 {
@@ -1050,7 +1051,7 @@ namespace EmeraldBotany.Data.Migrations
                     Url = table.Column<string>(nullable: true),
                     LastUpdate = table.Column<string>(nullable: true),
                     Citation = table.Column<string>(nullable: true),
-                    PlantId = table.Column<int>(nullable: true)
+                    PlantId = table.Column<int>(nullable: true),
                 },
                 constraints: table =>
                 {

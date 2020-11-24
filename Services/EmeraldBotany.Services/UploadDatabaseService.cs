@@ -4,20 +4,15 @@
     using System.IO;
     using System.IO.Compression;
 
-    using AngleSharp;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.VisualBasic.FileIO;
 
     public class UploadDatabaseService : IUploadDatabaseService
     {
-        private readonly IConfiguration config;
-        private readonly IBrowsingContext context;
         private readonly DbContext db;
 
         public UploadDatabaseService(DbContext db)
         {
-            this.config = Configuration.Default.WithDefaultLoader();
-            this.context = BrowsingContext.New(this.config);
             this.db = db;
         }
 
@@ -50,8 +45,6 @@
                     string[] row = parser.ReadFields();
                     list.Add(row);
                     counter++;
-
-                    // db.Model.
                 }
             }
         }
