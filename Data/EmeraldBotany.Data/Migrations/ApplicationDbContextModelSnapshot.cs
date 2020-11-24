@@ -1104,9 +1104,6 @@ namespace EmeraldBotany.Data.Migrations
                     b.Property<int?>("LinksId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("MainSpeciesId")
-                        .HasColumnType("int");
-
                     b.Property<DateTime?>("ModifiedOn")
                         .HasColumnType("datetime2");
 
@@ -1118,6 +1115,9 @@ namespace EmeraldBotany.Data.Migrations
 
                     b.Property<string>("Slug")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("SpeciesId")
+                        .HasColumnType("int");
 
                     b.Property<bool?>("Vegetable")
                         .HasColumnType("bit");
@@ -1131,7 +1131,7 @@ namespace EmeraldBotany.Data.Migrations
 
                     b.HasIndex("LinksId");
 
-                    b.HasIndex("MainSpeciesId");
+                    b.HasIndex("SpeciesId");
 
                     b.ToTable("Plants");
                 });
@@ -1389,177 +1389,6 @@ namespace EmeraldBotany.Data.Migrations
                     b.HasIndex("SpecificationsId");
 
                     b.ToTable("Species");
-                });
-
-            modelBuilder.Entity("EmeraldBotany.Data.Models.SpeciesDataDump", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("AnaerobicTolerance")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("AtmosphericHumidity")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Author")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("AverageHeightCm")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Bibliography")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("BloomMonths")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("CommonName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("CommonNames")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Distributions")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool?>("Edible")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("EdiblePart")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Family")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FamilyCommonName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FlowerColor")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool?>("FlowerConspicuous")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("FoliageColor")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FoliageTexture")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FruitColor")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool?>("FruitConspicuous")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("FruitMonths")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Genus")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("GroundHumidity")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("GrowthForm")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("GrowthHabit")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("GrowthMonths")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("GrowthRate")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ImageUrl")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("Light")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("MaximumHeightCm")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("MinimumRootDepthCm")
-                        .HasColumnType("int");
-
-                    b.Property<double?>("PhMaximum")
-                        .HasColumnType("float");
-
-                    b.Property<double?>("PhMinimum")
-                        .HasColumnType("float");
-
-                    b.Property<string>("PlantingDaysToHarvest")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PlantingDescription")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PlantingRowSpacingCm")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PlantingSowingDescription")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PlantingSpreadCm")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Rank")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ScientificName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("SoilNutriments")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("SoilSalinity")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Synonyms")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("UrlCatminat")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("UrlGbif")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("UrlOpenfarm")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("UrlPlantnet")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("UrlPowo")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("UrlSsda")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("UrlTelaBotanica")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("UrlTropicos")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("UrlWikipediaEn")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool?>("Vegetable")
-                        .HasColumnType("bit");
-
-                    b.Property<int?>("Year")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("SpeciesDataDump");
                 });
 
             modelBuilder.Entity("EmeraldBotany.Data.Models.Specifications", b =>
@@ -1923,9 +1752,9 @@ namespace EmeraldBotany.Data.Migrations
                         .WithMany()
                         .HasForeignKey("LinksId");
 
-                    b.HasOne("EmeraldBotany.Data.Models.Species", "MainSpecies")
+                    b.HasOne("EmeraldBotany.Data.Models.Species", "Species")
                         .WithMany()
-                        .HasForeignKey("MainSpeciesId");
+                        .HasForeignKey("SpeciesId");
                 });
 
             modelBuilder.Entity("EmeraldBotany.Data.Models.Source", b =>

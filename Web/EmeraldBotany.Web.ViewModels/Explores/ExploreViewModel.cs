@@ -1,11 +1,9 @@
-﻿namespace EmeraldBotany.Web.ViewModels.Species
+﻿namespace EmeraldBotany.Web.ViewModels.Explores
 {
     using EmeraldBotany.Data.Models;
     using EmeraldBotany.Services.Mapping;
 
-    using AutoMapper;
-
-    public class ExploreViewModel : IMapFrom<SpeciesDataDump>
+    public class ExploreViewModel : IMapFrom<Species>
     {
         public int Id { get; set; }
 
@@ -28,6 +26,5 @@
         public string FamilyCommonName { get; set; }
 
         public string ImageUrl { get; set; }
-
     }
 }

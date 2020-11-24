@@ -1,14 +1,24 @@
-﻿using System.Collections.Generic;
-using System.IO;
-using System.IO.Compression;
-using Microsoft.VisualBasic.FileIO;
-
-namespace EmeraldBotany.Services
+﻿namespace EmeraldBotany.Services
 {
+    using System.Collections.Generic;
+    using System.IO;
+    using System.IO.Compression;
+
+    using AngleSharp;
+    using Microsoft.EntityFrameworkCore;
+    using Microsoft.VisualBasic.FileIO;
+
     public class UploadDatabaseService : IUploadDatabaseService
     {
-        public UploadDatabaseService()
+        private readonly IConfiguration config;
+        private readonly IBrowsingContext context;
+        private readonly DbContext db;
+
+        public UploadDatabaseService(DbContext db)
         {
+            this.config = Configuration.Default.WithDefaultLoader();
+            this.context = BrowsingContext.New(this.config);
+            this.db = db;
         }
 
         public void PopulateDatabaseWithPlants()
@@ -18,6 +28,11 @@ namespace EmeraldBotany.Services
                 string zipPath = @"..\..\..\..\..\Materials\species.zip";
                 string extractPath = @"..\..\..\..\..\Materials";
                 ZipFile.ExtractToDirectory(zipPath, extractPath);
+            }
+            else
+            {
+                System.Console.WriteLine("ERROR");
+                return;
             }
 
             using (TextFieldParser parser = new TextFieldParser(@"\species.csv"))
@@ -31,10 +46,12 @@ namespace EmeraldBotany.Services
 
                 while (!parser.EndOfData || counter != 10)
                 {
-                    //Processing row
+                    // Processing row
                     string[] row = parser.ReadFields();
                     list.Add(row);
                     counter++;
+
+                    // db.Model.
                 }
             }
         }

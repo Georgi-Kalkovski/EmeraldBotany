@@ -1,6 +1,5 @@
-﻿namespace EmeraldBotany.Web.ViewModels.Species
+﻿namespace EmeraldBotany.Web.ViewModels.Explores
 {
-    using EmeraldBotany.Data.Models;
     using System.Collections.Generic;
 
     public class ExploresListViewModel

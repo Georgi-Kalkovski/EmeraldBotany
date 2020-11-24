@@ -1,12 +1,9 @@
 ﻿namespace EmeraldBotany.Web.Controllers
 {
     using System.Diagnostics;
-    using System.Linq;
-    using EmeraldBotany.Data.Common.Repositories;
-    using EmeraldBotany.Data.Models;
+
     using EmeraldBotany.Services.Data;
     using EmeraldBotany.Web.ViewModels;
-    using EmeraldBotany.Web.ViewModels.Home;
     using Microsoft.AspNetCore.Mvc;
 
     public class HomeController : BaseController

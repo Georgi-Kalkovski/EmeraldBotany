@@ -11,7 +11,6 @@
     using EmeraldBotany.Services.Data;
     using EmeraldBotany.Services.Mapping;
     using EmeraldBotany.Services.Messaging;
-    using EmeraldBotany.Web.TrefleOpenAPIService;
     using EmeraldBotany.Web.ViewModels;
 
     using Microsoft.AspNetCore.Builder;

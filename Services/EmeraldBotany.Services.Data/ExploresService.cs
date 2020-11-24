@@ -2,15 +2,16 @@
 {
     using System.Collections.Generic;
     using System.Linq;
+
     using EmeraldBotany.Data.Common.Repositories;
     using EmeraldBotany.Data.Models;
     using EmeraldBotany.Services.Mapping;
 
     public class ExploresService : IExploresService
     {
-        private readonly IRepository<SpeciesDataDump> repository;
+        private readonly IRepository<Species> repository;
 
-        public ExploresService(IRepository<SpeciesDataDump> repository)
+        public ExploresService(IRepository<Species> repository)
         {
             this.repository = repository;
         }

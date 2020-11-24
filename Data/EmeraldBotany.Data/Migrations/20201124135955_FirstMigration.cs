@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace EmeraldBotany.Data.Migrations
 {
-    public partial class NewMigration : Migration
+    public partial class FirstMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -296,71 +296,6 @@ namespace EmeraldBotany.Data.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Settings", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "SpeciesDataDump",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    ScientificName = table.Column<string>(nullable: true),
-                    Rank = table.Column<string>(nullable: true),
-                    Genus = table.Column<string>(nullable: true),
-                    Family = table.Column<string>(nullable: true),
-                    Year = table.Column<int>(nullable: true),
-                    Author = table.Column<string>(nullable: true),
-                    Bibliography = table.Column<string>(nullable: true),
-                    CommonName = table.Column<string>(nullable: true),
-                    FamilyCommonName = table.Column<string>(nullable: true),
-                    ImageUrl = table.Column<string>(nullable: true),
-                    FlowerColor = table.Column<string>(nullable: true),
-                    FlowerConspicuous = table.Column<bool>(nullable: true),
-                    FoliageColor = table.Column<string>(nullable: true),
-                    FoliageTexture = table.Column<string>(nullable: true),
-                    FruitColor = table.Column<string>(nullable: true),
-                    FruitConspicuous = table.Column<bool>(nullable: true),
-                    FruitMonths = table.Column<string>(nullable: true),
-                    BloomMonths = table.Column<string>(nullable: true),
-                    GroundHumidity = table.Column<string>(nullable: true),
-                    GrowthForm = table.Column<string>(nullable: true),
-                    GrowthHabit = table.Column<string>(nullable: true),
-                    GrowthMonths = table.Column<string>(nullable: true),
-                    GrowthRate = table.Column<string>(nullable: true),
-                    EdiblePart = table.Column<string>(nullable: true),
-                    Vegetable = table.Column<bool>(nullable: true),
-                    Edible = table.Column<bool>(nullable: true),
-                    Light = table.Column<int>(nullable: true),
-                    SoilNutriments = table.Column<string>(nullable: true),
-                    SoilSalinity = table.Column<string>(nullable: true),
-                    AnaerobicTolerance = table.Column<string>(nullable: true),
-                    AtmosphericHumidity = table.Column<string>(nullable: true),
-                    AverageHeightCm = table.Column<int>(nullable: true),
-                    MaximumHeightCm = table.Column<int>(nullable: true),
-                    MinimumRootDepthCm = table.Column<int>(nullable: true),
-                    PhMaximum = table.Column<double>(nullable: true),
-                    PhMinimum = table.Column<double>(nullable: true),
-                    PlantingDaysToHarvest = table.Column<string>(nullable: true),
-                    PlantingDescription = table.Column<string>(nullable: true),
-                    PlantingSowingDescription = table.Column<string>(nullable: true),
-                    PlantingRowSpacingCm = table.Column<string>(nullable: true),
-                    PlantingSpreadCm = table.Column<string>(nullable: true),
-                    Synonyms = table.Column<string>(nullable: true),
-                    Distributions = table.Column<string>(nullable: true),
-                    CommonNames = table.Column<string>(nullable: true),
-                    UrlSsda = table.Column<string>(nullable: true),
-                    UrlTropicos = table.Column<string>(nullable: true),
-                    UrlTelaBotanica = table.Column<string>(nullable: true),
-                    UrlPowo = table.Column<string>(nullable: true),
-                    UrlPlantnet = table.Column<string>(nullable: true),
-                    UrlGbif = table.Column<string>(nullable: true),
-                    UrlOpenfarm = table.Column<string>(nullable: true),
-                    UrlCatminat = table.Column<string>(nullable: true),
-                    UrlWikipediaEn = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_SpeciesDataDump", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -1029,7 +964,7 @@ namespace EmeraldBotany.Data.Migrations
                     GenusId = table.Column<int>(nullable: false),
                     Vegetable = table.Column<bool>(nullable: true),
                     Observations = table.Column<string>(nullable: true),
-                    MainSpeciesId = table.Column<int>(nullable: true),
+                    SpeciesId = table.Column<int>(nullable: true),
                     LinksId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
@@ -1042,8 +977,8 @@ namespace EmeraldBotany.Data.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Plants_Species_MainSpeciesId",
-                        column: x => x.MainSpeciesId,
+                        name: "FK_Plants_Species_SpeciesId",
+                        column: x => x.SpeciesId,
                         principalTable: "Species",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
@@ -1423,9 +1358,9 @@ namespace EmeraldBotany.Data.Migrations
                 column: "LinksId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Plants_MainSpeciesId",
+                name: "IX_Plants_SpeciesId",
                 table: "Plants",
-                column: "MainSpeciesId");
+                column: "SpeciesId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_RowSpacings_IsDeleted",
@@ -1588,9 +1523,6 @@ namespace EmeraldBotany.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "Sources");
-
-            migrationBuilder.DropTable(
-                name: "SpeciesDataDump");
 
             migrationBuilder.DropTable(
                 name: "Synonyms");

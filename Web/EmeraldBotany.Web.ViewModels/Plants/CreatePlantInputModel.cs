@@ -1,16 +1,12 @@
-﻿namespace EmeraldBotany.Data.Models
+﻿namespace EmeraldBotany.Web.ViewModels.Plants
 {
     using System.Collections.Generic;
 
-    using EmeraldBotany.Data.Common.Models;
+    using EmeraldBotany.Data.Models;
+    using EmeraldBotany.Services.Mapping;
 
-    public class Plant : BaseDeletableModel<int>
+    public class CreatePlantInputModel : IMapFrom<Plant>
     {
-        public Plant()
-        {
-            this.Sources = new HashSet<Source>();
-        }
-
         public string CommonName { get; set; }
 
         public string Slug { get; set; }
@@ -31,12 +27,12 @@
 
         public string Observations { get; set; }
 
-        public int? SpeciesId { get; set; }
+        public int? MainSpeciesId { get; set; }
 
         public virtual Links Links { get; set; } = new Links();
 
         public virtual Species Species { get; set; }
 
-        public virtual ICollection<Source> Sources { get; set; }
+        public virtual IEnumerator<Source> Sources { get; set; }
     }
 }

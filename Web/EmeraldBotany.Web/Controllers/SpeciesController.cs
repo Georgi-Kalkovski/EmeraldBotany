@@ -1,11 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace EmeraldBotany.Web.Controllers
+﻿namespace EmeraldBotany.Web.Controllers
 {
+    using Microsoft.AspNetCore.Mvc;
+
     public class SpeciesController : Controller
     {
     }
