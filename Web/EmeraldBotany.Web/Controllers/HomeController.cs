@@ -1,24 +1,27 @@
 ﻿namespace EmeraldBotany.Web.Controllers
 {
     using System.Diagnostics;
-
-    using EmeraldBotany.Web.TrefleOpenAPIService;
+    using System.Linq;
+    using EmeraldBotany.Data.Common.Repositories;
+    using EmeraldBotany.Data.Models;
+    using EmeraldBotany.Services.Data;
     using EmeraldBotany.Web.ViewModels;
-
+    using EmeraldBotany.Web.ViewModels.Home;
     using Microsoft.AspNetCore.Mvc;
 
     public class HomeController : BaseController
     {
-        private readonly IPlantsService plantsService;
+        private readonly IGetCountsService getCountsService;
 
-        public HomeController(IPlantsService plantsService)
+        public HomeController(IGetCountsService getCountsService)
         {
-            this.plantsService = plantsService;
+            this.getCountsService = getCountsService;
         }
 
         public IActionResult Index()
         {
-            return this.View();
+            var viewModel = this.getCountsService.GetCounts();
+            return this.View(viewModel);
         }
 
         public IActionResult Privacy()

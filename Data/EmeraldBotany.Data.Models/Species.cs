@@ -15,29 +15,24 @@
             this.CommonNames = new Dictionary<string, ICollection<string>>();
             this.Synonyms = new HashSet<Synonyms>();
             this.Sources = new HashSet<Sources>();
-
-            // this.Distributions = new Dictionary<string, ICollection<string>>();
+            this.Distributions = new Dictionary<string, ICollection<string>>();
         }
-
-        public string CommonName { get; set; }
-
-        public string Slug { get; set; }
 
         public string ScientificName { get; set; }
 
-        public int? Year { get; set; }
-
-        public string Bibliography { get; set; }
-
-        public string Author { get; set; }
-
-        public string FamilyCommonName { get; set; }
+        public string Genus { get; set; }
 
         public string Family { get; set; }
 
-        public int? GenusId { get; set; }
+        public int? Year { get; set; }
 
-        public string Genus { get; set; }
+        public virtual string Author { get; set; }
+
+        public string Bibliography { get; set; }
+
+        public string CommonName { get; set; }
+
+        public string FamilyCommonName { get; set; }
 
         public string ImageUrl { get; set; }
 
@@ -45,7 +40,7 @@
 
         public string Observations { get; set; }
 
-        public int? ImagesId { get; set; }
+        public string AuthorId { get; set; }
 
         public int? FlowerId { get; set; }
 
@@ -57,21 +52,29 @@
 
         public int? GrowthId { get; set; }
 
-        public Images Images { get; set; }
+        public int? DistributionId { get; set; }
 
-        public Flower Flower { get; set; }
+        public int? LinksId { get; set; }
 
-        public Foliage Foliage { get; set; }
+        public virtual Links Links { get; set; }
 
-        public FruitOrSeed FruitOrSeed { get; set; }
+        public virtual Distributions Distribution { get; set; }
 
-        public Specifications Specifications { get; set; }
+        public virtual Images Images { get; set; }
 
-        public Growth Growth { get; set; }
+        public virtual Flower Flower { get; set; }
 
-        public SpeciesStatus Status { get; set; }
+        public virtual Foliage Foliage { get; set; }
+
+        public virtual FruitOrSeed FruitOrSeed { get; set; }
+
+        public virtual Specifications Specifications { get; set; }
+
+        public virtual Growth Growth { get; set; }
 
         public SpeciesRank Rank { get; set; }
+
+        public SpeciesStatus Status { get; set; }
 
         [NotMapped]
         public virtual ICollection<Duration?> Duration { get; set; }
@@ -86,15 +89,7 @@
         [NotMapped]
         public virtual IDictionary<string, ICollection<string>> CommonNames { get; set; }
 
-        // public int? DistributionsId { get; set; }
-
-        // public int? LinksId { get; set; }
-
-        // public Links Links { get; set; }
-
-        // public Distributions Distribution { get; set; }
-
-        /* [NotMapped]
-        public virtual IDictionary<string, ICollection<string>> Distributions { get; set; } */
+        [NotMapped]
+        public virtual IDictionary<string, ICollection<string>> Distributions { get; set; }
     }
 }

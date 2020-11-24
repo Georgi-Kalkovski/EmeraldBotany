@@ -65,8 +65,8 @@
             // Application services
             services.AddTransient<IEmailSender, NullMessageSender>();
             services.AddTransient<ISettingsService, SettingsService>();
-            services.AddTransient<IPlantsService, PlantsService>();
             services.AddTransient<IExploresService, ExploresService>();
+            services.AddTransient<IGetCountsService, GetCountsService>();
             services.AddSwaggerGen();
         }
 

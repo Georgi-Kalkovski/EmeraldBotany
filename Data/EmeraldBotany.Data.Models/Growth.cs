@@ -51,19 +51,19 @@
 
         public int? MaximumTemperatureId { get; set; }
 
-        public RowSpacing RowSpacing { get; set; }
+        public virtual RowSpacing RowSpacing { get; set; }
 
-        public Spread Spread { get; set; }
+        public virtual Spread Spread { get; set; }
 
-        public MinimumPrecipitation MinimumPrecipitation { get; set; }
+        public virtual MinimumPrecipitation MinimumPrecipitation { get; set; }
 
-        public MaximumPrecipitation MaximumPrecipitation { get; set; }
+        public virtual MaximumPrecipitation MaximumPrecipitation { get; set; }
 
-        public MinimumRootDepth MinimumRootDepth { get; set; }
+        public virtual MinimumRootDepth MinimumRootDepth { get; set; }
 
-        public MinimumTemperature MinimumTemperature { get; set; }
+        public virtual MinimumTemperature MinimumTemperature { get; set; }
 
-        public MaximumTemperature MaximumTemperature { get; set; }
+        public virtual MaximumTemperature MaximumTemperature { get; set; }
 
         [NotMapped]
         public virtual ICollection<GrowthMonths?> GrowthMonths { get; set; }

@@ -1,8 +1,24 @@
 ﻿@using EmeraldBotany.Common
+@model EmeraldBotany.Web.ViewModels.Home.IndexViewModel
 @{
     this.ViewData["Title"] = "Home Page";
 }
-<div class="text-center">
-    <h1 class="display-4">Welcome to @GlobalConstants.SystemName!</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+@{
+    <button class="bg-danger">Upload Data</button>
+    <div class="text-center">
+        <h1 class="display-4">Welcome to @GlobalConstants.SystemName!</h1>
+        <div class="col-md-4 offset-md-4">
+            <p>
+                We have:
+                <ul class="list-group ">
+                    <li class="list-group-item bg-dark text-success">Plants: @Model.PlantsCount</li>
+                    <li class="list-group-item bg-dark text-success">Species: @Model.SpeciesCount</li>
+                    <li class="list-group-item bg-dark text-success">Growth: @Model.GrowthCount</li>
+                    <li class="list-group-item bg-dark text-success">Distributions: @Model.DistributionsCount</li>
+                    <li class="list-group-item bg-dark text-success">Images: @Model.ImagesCount</li>
+                    <li class="list-group-item bg-dark text-success">Specifications: @Model.SpecificationsCount</li>
+                </ul>
+            </p>
+        </div>
+    </div>
+}

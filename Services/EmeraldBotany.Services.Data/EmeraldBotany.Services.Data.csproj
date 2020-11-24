@@ -21,6 +21,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Data\EmeraldBotany.Data.Common\EmeraldBotany.Data.Common.csproj" />
     <ProjectReference Include="..\..\Data\EmeraldBotany.Data.Models\EmeraldBotany.Data.Models.csproj" />
+    <ProjectReference Include="..\..\Web\EmeraldBotany.Web.ViewModels\EmeraldBotany.Web.ViewModels.csproj" />
     <ProjectReference Include="..\EmeraldBotany.Services.Mapping\EmeraldBotany.Services.Mapping.csproj" />
   </ItemGroup>
 

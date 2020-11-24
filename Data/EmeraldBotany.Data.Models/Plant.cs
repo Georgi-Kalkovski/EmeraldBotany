@@ -33,10 +33,10 @@
 
         public int? MainSpeciesId { get; set; }
 
-        public Species MainSpecies { get; set; }
+        public virtual Links Links { get; set; } = new Links();
 
-        public ICollection<Source> Sources { get; set; }
+        public virtual Species MainSpecies { get; set; }
 
-        // public Links Links { get; set; } = new Links();
+        public virtual ICollection<Source> Sources { get; set; }
     }
 }

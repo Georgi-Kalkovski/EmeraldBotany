@@ -78,19 +78,20 @@
 
         public DbSet<SpeciesDataDump> SpeciesDataDump { get; set; }
 
-        // public DbSet<Absent> Absents { get; set; }
+        public DbSet<Absent> Absents { get; set; }
 
-        // public DbSet<Distributions> Distributions { get; set; }
+        public DbSet<Distributions> Distributions { get; set; }
 
-        // public DbSet<Doubtful> Doubtfuls { get; set; }
+        public DbSet<Doubtful> Doubtfuls { get; set; }
 
-        // public DbSet<Extinct> Extincts { get; set; }
+        public DbSet<Extinct> Extincts { get; set; }
 
-        // public DbSet<Introduced> Introduceds { get; set; }
+        public DbSet<Introduced> Introduceds { get; set; }
 
-        // public DbSet<Links> Links { get; set; }
+        public DbSet<Links> Links { get; set; }
 
-        // public DbSet<Native> Natives { get; set; }
+        public DbSet<Native> Natives { get; set; }
+
         public override int SaveChanges() => this.SaveChanges(true);
 
         public override int SaveChanges(bool acceptAllChangesOnSuccess)
