@@ -10,7 +10,7 @@
     {
         public FruitOrSeed()
         {
-            this.Color = new HashSet<Color?>();
+            this.Color = new HashSet<ColorEnum?>();
         }
 
         public bool? Conspicuous { get; set; }
@@ -20,6 +20,6 @@
         public bool? SeedPersistence { get; set; }
 
         [NotMapped]
-        public virtual ICollection<Color?> Color { get; set; }
+        public virtual ICollection<ColorEnum?> Color { get; set; }
     }
 }

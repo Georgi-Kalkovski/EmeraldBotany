@@ -27,6 +27,12 @@
             return this.View(viewModel);
         }
 
+        public IActionResult Upload()
+        {
+            var upload = this.uploadDatabase.PopulateDatabaseWithPlants();
+            return this.View(upload);
+        }
+
         public IActionResult Privacy()
         {
             return this.View();

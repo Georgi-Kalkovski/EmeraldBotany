@@ -3,9 +3,11 @@
 @{
     this.ViewData["Title"] = "Home Page";
 }
+@inject EmeraldBotany.Services.Data.IUploadDatabaseService Upload
 @{
-    <button class="bg-danger">Upload Data</button>
+    
     <div class="text-center">
+        <button type="submit" class="bg-danger" onclick="@Upload.PopulateDatabaseWithPlants()">Upload Data</button>
         <h1 class="display-4">Welcome to @GlobalConstants.SystemName!</h1>
         <div class="col-md-4 offset-md-4">
             <p>

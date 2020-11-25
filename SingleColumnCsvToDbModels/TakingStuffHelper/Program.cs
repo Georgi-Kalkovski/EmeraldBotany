@@ -10,6 +10,14 @@ namespace TakingStuffHelper
     {
         static void Main(string[] args)
         {
+            var row = "Alberta,Connecticut,Iowa,Labrador,Maine,Manitoba,Masachusettes,Michigan,Minnesota,New Brunswick,New Hampshire,New Jersey,New York,Newfoundland,Nova Scotia,Ontario,Pennsylvania,Prince Edward I.,Québec,Saskatchewan,Vermont,Virginia,West Virginia,Wisconsin";
+            List<string> colors = new List<string>();
+            foreach (var color in row.Split(","))
+            {
+                colors.Add(color);
+            };
+
+            Console.WriteLine();
 
             if (!File.Exists(@"..\..\..\..\..\Materials\species.csv"))
             {
@@ -24,18 +32,18 @@ namespace TakingStuffHelper
 
                 var list = new List<string[]>();
                 var counter = 0;
-                while (!parser.EndOfData && counter != 10)
-                {
-                    //Processing row
-                    string[] row = parser.ReadFields();
-                    list.Add(row);
-                    foreach (var id in row)
-                    {
-                        Console.WriteLine(id);
-                    }
-                    counter++;
-                    Console.WriteLine("-----------------------------NEW ------------------------------");
-                }
+                //while (!parser.EndOfData && counter != 10)
+                //{
+                //    //Processing row
+                //    string[] row = parser.ReadFields();
+                //    list.Add(row);
+                //    foreach (var id in row)
+                //    {
+                //        Console.WriteLine(id);
+                //    }
+                //    counter++;
+                //    Console.WriteLine("-----------------------------NEW ------------------------------");
+                //}
             }
         }
     }

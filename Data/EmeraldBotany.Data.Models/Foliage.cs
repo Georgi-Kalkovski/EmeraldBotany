@@ -10,14 +10,14 @@
     {
         public Foliage()
         {
-            this.Color = new HashSet<Color?>();
+            this.Color = new HashSet<ColorEnum?>();
         }
 
         public bool? LeafRetention { get; set; }
 
-        public FoliageTexture? Texture { get; set; }
+        public FoliageTextureEnum? Texture { get; set; }
 
         [NotMapped]
-        public virtual ICollection<Color?> Color { get; set; }
+        public virtual ICollection<ColorEnum?> Color { get; set; }
     }
 }

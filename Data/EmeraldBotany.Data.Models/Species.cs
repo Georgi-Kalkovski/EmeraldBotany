@@ -10,8 +10,8 @@
     {
         public Species()
         {
-            this.Duration = new HashSet<Duration?>();
-            this.EdiblePart = new HashSet<EdiblePart?>();
+            this.Duration = new HashSet<DurationEnum?>();
+            this.EdiblePart = new HashSet<EdiblePartEnum?>();
             this.CommonNames = new Dictionary<string, ICollection<string>>();
             this.Synonyms = new HashSet<Synonyms>();
             this.Sources = new HashSet<Sources>();
@@ -72,15 +72,15 @@
 
         public virtual Growth Growth { get; set; }
 
-        public SpeciesRank Rank { get; set; }
+        public virtual SpeciesRankEnum Rank { get; set; }
 
-        public SpeciesStatus Status { get; set; }
-
-        [NotMapped]
-        public virtual ICollection<Duration?> Duration { get; set; }
+        public virtual SpeciesStatusEnum Status { get; set; }
 
         [NotMapped]
-        public virtual ICollection<EdiblePart?> EdiblePart { get; set; }
+        public virtual ICollection<DurationEnum?> Duration { get; set; }
+
+        [NotMapped]
+        public virtual ICollection<EdiblePartEnum?> EdiblePart { get; set; }
 
         public virtual ICollection<Synonyms> Synonyms { get; set; }
 

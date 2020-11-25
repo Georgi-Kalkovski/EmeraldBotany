@@ -10,9 +10,9 @@
     {
         public Growth()
         {
-            this.GrowthMonths = new HashSet<GrowthMonths?>();
-            this.BloomMonths = new HashSet<BloomMonths?>();
-            this.FruitMonths = new HashSet<FruitMonths?>();
+            this.GrowthMonths = new HashSet<GrowthMonthsEnum?>();
+            this.BloomMonths = new HashSet<BloomMonthsEnum?>();
+            this.FruitMonths = new HashSet<FruitMonthsEnum?>();
         }
 
         public double? DaysToHarvest { get; set; }
@@ -66,12 +66,12 @@
         public virtual MaximumTemperature MaximumTemperature { get; set; }
 
         [NotMapped]
-        public virtual ICollection<GrowthMonths?> GrowthMonths { get; set; }
+        public virtual ICollection<GrowthMonthsEnum?> GrowthMonths { get; set; }
 
         [NotMapped]
-        public virtual ICollection<BloomMonths?> BloomMonths { get; set; }
+        public virtual ICollection<BloomMonthsEnum?> BloomMonths { get; set; }
 
         [NotMapped]
-        public virtual ICollection<FruitMonths?> FruitMonths { get; set; }
+        public virtual ICollection<FruitMonthsEnum?> FruitMonths { get; set; }
     }
 }

@@ -8,7 +8,6 @@
     using EmeraldBotany.Data.Models;
     using EmeraldBotany.Data.Repositories;
     using EmeraldBotany.Data.Seeding;
-    using EmeraldBotany.Services;
     using EmeraldBotany.Services.Data;
     using EmeraldBotany.Services.Mapping;
     using EmeraldBotany.Services.Messaging;
@@ -54,6 +53,7 @@
                         options.Filters.Add(new AutoValidateAntiforgeryTokenAttribute());
                     }).AddRazorRuntimeCompilation();
             services.AddRazorPages();
+            services.AddDatabaseDeveloperPageExceptionFilter();
 
             services.AddSingleton(this.configuration);
 
@@ -86,7 +86,7 @@
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseDatabaseErrorPage();
+                app.UseMigrationsEndPoint();
             }
             else
             {

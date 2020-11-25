@@ -23,8 +23,8 @@
 
         public virtual MaximumHeight MaximumHeight { get; set; }
 
-        public SpecificationsLigneousType? LigneousType { get; set; }
+        public SpecificationsLigneousTypeEnum? LigneousType { get; set; }
 
-        public SpecificationsToxicity? Toxicity { get; set; }
+        public SpecificationsToxicityEnum? Toxicity { get; set; }
     }
 }

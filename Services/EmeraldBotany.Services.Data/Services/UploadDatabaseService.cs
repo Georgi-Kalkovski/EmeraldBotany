@@ -1,22 +1,41 @@
 ﻿namespace EmeraldBotany.Services.Data
 {
-    using System.Collections.Generic;
+    using System;
     using System.IO;
     using System.IO.Compression;
+    using System.Threading.Tasks;
+
+    using EmeraldBotany.Data.Common.Repositories;
     using EmeraldBotany.Data.Models;
-    using Microsoft.EntityFrameworkCore;
+    using EmeraldBotany.Data.Models.Enums;
     using Microsoft.VisualBasic.FileIO;
 
     public class UploadDatabaseService : IUploadDatabaseService
     {
-        private readonly DbContext db;
+        private readonly IDeletableEntityRepository<Plant> plantsRepo;
+        private readonly IDeletableEntityRepository<Species> speciesRepo;
+        private readonly IDeletableEntityRepository<Growth> growthsRepo;
+        private readonly IDeletableEntityRepository<Images> imagesRepo;
+        private readonly IDeletableEntityRepository<Distributions> distributionsRepo;
+        private readonly IDeletableEntityRepository<Specifications> specificationsRepo;
 
-        public UploadDatabaseService(DbContext db)
+        public UploadDatabaseService(
+            IDeletableEntityRepository<Plant> plantsRepo,
+            IDeletableEntityRepository<Species> speciesRepo,
+            IDeletableEntityRepository<Growth> growthsRepo,
+            IDeletableEntityRepository<Images> imagesRepo,
+            IDeletableEntityRepository<Distributions> distributionsRepo,
+            IDeletableEntityRepository<Specifications> specificationsRepo)
         {
-            this.db = db;
+            this.plantsRepo = plantsRepo;
+            this.speciesRepo = speciesRepo;
+            this.growthsRepo = growthsRepo;
+            this.imagesRepo = imagesRepo;
+            this.distributionsRepo = distributionsRepo;
+            this.specificationsRepo = specificationsRepo;
         }
 
-        public void PopulateDatabaseWithPlants()
+        public async Task PopulateDatabaseWithPlants()
         {
             if (!File.Exists(@"..\..\..\..\..\Materials\species.csv"))
             {
@@ -25,56 +44,45 @@
                 ZipFile.ExtractToDirectory(zipPath, extractPath);
             }
 
-            var list = new List<string[]>();
+            using TextFieldParser parser = new TextFieldParser(@"..\..\..\..\..\species.csv");
+            parser.TextFieldType = FieldType.Delimited;
+            parser.SetDelimiters("\t");
 
-            using (TextFieldParser parser = new TextFieldParser(@"..\..\..\..\..\species.csv"))
+            var counter = 0;
+
+            while (!parser.EndOfData && counter != 10)
             {
-                parser.TextFieldType = FieldType.Delimited;
-                parser.SetDelimiters("\t");
+                // Processing row
+                string[] row = parser.ReadFields();
+                counter++;
 
-                var counter = 0;
-
-                while (!parser.EndOfData && counter != 10)
+                var species = new Species
                 {
-                    // Processing row
-                    string[] row = parser.ReadFields();
-                    list.Add(row);
-                    counter++;
+                    Id = int.Parse(row[0]),
+                    ScientificName = row[1],
+                    Rank = (SpeciesRankEnum)Enum.Parse(typeof(SpeciesRankEnum), row[2], true),
+                    Genus = row[3],
+                    Family = row[4],
+                    Year = int.Parse(row[5]),
+                    Author = row[6],
+                    Bibliography = row[7],
+                    CommonName = row[8],
+                    FamilyCommonName = row[9],
+                    ImageUrl = row[10],
+                    Vegetable = bool.Parse(row[25]),
+                    Links = new Links(),
+                    Distribution = new Distributions(),
+                    Images = new Images(),
+                    Flower = new Flower(),
+                    Foliage = new Foliage(),
+                    FruitOrSeed = new FruitOrSeed(),
+                    Specifications = new Specifications(),
+                    Growth = new Growth(),
+                };
 
-                    var species = new Species
-                    {
-                        Id = int.Parse(row[0]),
-                        ScientificName = row[1],
-                        Genus = row[3],
-                        Family = row[4],
-                        Year = int.Parse(row[5]),
-                        Author = row[3],
-                        AuthorId = row[3],
-                        FlowerId = row[3],
-                        FoliageId = row[3],
-                        FruitOrSeedId = row[3],
-                        SpecificationsId = row[3],
-                        GrowthId = row[3],
-                        DistributionId = row[3],
-                        LinksId = row[3],
-                        Links = new Links(row[3].Split()),
-                        Distribution = row[3],
-                        Images = row[3],
-                        Flower = row[3],
-                        Foliage = row[3],
-                        FruitOrSeed = row[3],
-                        Specifications = row[3],
-                        Growth = row[3],
-                        Rank = row[3],
-                        Status = row[3],
-                        Duration = row[3],
-                        EdiblePart = row[3],
-                        Synonyms = row[3],
-                        Sources = row[3],
-                        CommonNames = row[3],
-                        Distributions = row[3],
-                    };
-                }
+                await this.speciesRepo.AddAsync(species);
+
+                await this.speciesRepo.SaveChangesAsync();
             }
         }
     }
