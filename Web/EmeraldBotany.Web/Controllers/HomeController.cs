@@ -1,6 +1,7 @@
 ﻿namespace EmeraldBotany.Web.Controllers
 {
     using System.Diagnostics;
+    using System.Threading.Tasks;
 
     using EmeraldBotany.Data.Common.Repositories;
     using EmeraldBotany.Data.Models;
@@ -12,9 +13,9 @@
     {
         private readonly IGetCountsService getCountsService;
         private readonly IUploadDatabaseService uploadDatabase;
-        private readonly IDeletableEntityRepository<Plant> repository;
+        private readonly IDeletableEntityRepository<Species> repository;
 
-        public HomeController(IGetCountsService getCountsService, IUploadDatabaseService uploadDatabase, IDeletableEntityRepository<Plant> repository)
+        public HomeController(IGetCountsService getCountsService, IUploadDatabaseService uploadDatabase, IDeletableEntityRepository<Species> repository)
         {
             this.getCountsService = getCountsService;
             this.uploadDatabase = uploadDatabase;
@@ -27,11 +28,11 @@
             return this.View(viewModel);
         }
 
-        public IActionResult Upload()
-        {
-            var upload = this.uploadDatabase.PopulateDatabaseWithPlants();
-            return this.View(upload);
-        }
+        //public IActionResult Upload()
+        //{
+        //    var upload = this.uploadDatabase.PopulateDatabaseWithPlants();
+        //    return this.View(upload);
+        //}
 
         public IActionResult Privacy()
         {

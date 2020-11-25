@@ -1,13 +1,16 @@
 ﻿namespace EmeraldBotany.Services.Data
 {
     using System;
+    using System.Collections;
     using System.IO;
     using System.IO.Compression;
+    using System.Linq;
     using System.Threading.Tasks;
 
     using EmeraldBotany.Data.Common.Repositories;
     using EmeraldBotany.Data.Models;
     using EmeraldBotany.Data.Models.Enums;
+    using EmeraldBotany.Web.ViewModel;
     using Microsoft.VisualBasic.FileIO;
 
     public class UploadDatabaseService : IUploadDatabaseService
@@ -35,17 +38,19 @@
             this.specificationsRepo = specificationsRepo;
         }
 
-        public async Task PopulateDatabaseWithPlants()
+        public async void PopulateDatabaseWithPlants()
         {
-            if (!File.Exists(@"..\..\..\..\..\Materials\species.csv"))
+            if (!File.Exists(Path.GetFullPath(@"..\..\Materials\species.csv")))
             {
-                string zipPath = @"..\..\..\..\..\Materials\species.zip";
-                string extractPath = @"..\..\..\..\..\Materials";
-                ZipFile.ExtractToDirectory(zipPath, extractPath);
+                string zipPath = Path.GetFullPath(@"..\..\Materials\species.zip");
+                string extractPath = Path.GetFullPath(@"..\..\Materials");
+                await Task.Run(() => ZipFile.ExtractToDirectory(zipPath, extractPath));
             }
 
-            using TextFieldParser parser = new TextFieldParser(@"..\..\..\..\..\species.csv");
-            parser.TextFieldType = FieldType.Delimited;
+            TextFieldParser parser = new TextFieldParser(Path.GetFullPath(@"..\..\Materials\species.csv"))
+            {
+                TextFieldType = FieldType.Delimited,
+            };
             parser.SetDelimiters("\t");
 
             var counter = 0;
@@ -56,11 +61,11 @@
                 string[] row = parser.ReadFields();
                 counter++;
 
-                var species = new Species
+                var species = new CreateSpeciesInputModel
                 {
                     Id = int.Parse(row[0]),
                     ScientificName = row[1],
-                    Rank = (SpeciesRankEnum)Enum.Parse(typeof(SpeciesRankEnum), row[2], true),
+                    Rank = row[2],
                     Genus = row[3],
                     Family = row[4],
                     Year = int.Parse(row[5]),
@@ -78,9 +83,10 @@
                     FruitOrSeed = new FruitOrSeed(),
                     Specifications = new Specifications(),
                     Growth = new Growth(),
+                    //EdiblePart =(EdiblePartEnum) Enum.Parse(typeof(EdiblePartEnum), row[24].Split(",")), 
                 };
 
-                await this.speciesRepo.AddAsync(species);
+                //await this.speciesRepo.AddAsync(species);
 
                 await this.speciesRepo.SaveChangesAsync();
             }

@@ -5,6 +5,6 @@
 
     public interface IUploadDatabaseService
     {
-        Task PopulateDatabaseWithPlants();
+        void PopulateDatabaseWithPlants();
     }
 }

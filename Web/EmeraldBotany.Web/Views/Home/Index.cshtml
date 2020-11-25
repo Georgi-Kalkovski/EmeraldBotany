@@ -1,13 +1,16 @@
 ﻿@using EmeraldBotany.Common
+@using EmeraldBotany.Services.Data
 @model EmeraldBotany.Web.ViewModels.Home.IndexViewModel
 @{
     this.ViewData["Title"] = "Home Page";
 }
-@inject EmeraldBotany.Services.Data.IUploadDatabaseService Upload
+@inject IUploadDatabaseService Update
 @{
-    
     <div class="text-center">
-        <button type="submit" class="bg-danger" onclick="@Upload.PopulateDatabaseWithPlants()">Upload Data</button>
+        @if (Model.SpeciesCount == 0)
+        {
+            <button class="bg-danger" type="submit" onclick="@{Update.PopulateDatabaseWithPlants();}">Update Data</button>
+        }
         <h1 class="display-4">Welcome to @GlobalConstants.SystemName!</h1>
         <div class="col-md-4 offset-md-4">
             <p>

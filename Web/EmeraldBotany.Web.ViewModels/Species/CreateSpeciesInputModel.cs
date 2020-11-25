@@ -7,6 +7,8 @@
 
     public class CreateSpeciesInputModel : IMapFrom<Species>
     {
+        public int Id { get; set; }
+
         public string ScientificName { get; set; }
 
         public string Genus { get; set; }
@@ -28,22 +30,6 @@
         public bool? Vegetable { get; set; }
 
         public string Observations { get; set; }
-
-        public string AuthorId { get; set; }
-
-        public int? FlowerId { get; set; }
-
-        public int? FoliageId { get; set; }
-
-        public int? FruitOrSeedId { get; set; }
-
-        public int? SpecificationsId { get; set; }
-
-        public int? GrowthId { get; set; }
-
-        public int? DistributionId { get; set; }
-
-        public int? LinksId { get; set; }
 
         public virtual Links Links { get; set; }
 
