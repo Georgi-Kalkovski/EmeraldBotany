@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace EmeraldBotany.Data.Models.Enums
+﻿namespace EmeraldBotany.Data.Models.Enums
 {
     public enum SpeciesStatusEnum
     {

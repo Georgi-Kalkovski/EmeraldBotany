@@ -1,7 +1,9 @@
 ﻿namespace EmeraldBotany.Data.Models
 {
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations.Schema;
+
     using EmeraldBotany.Data.Common.Models;
-    using EmeraldBotany.Data.Models.Enums;
 
     public class Specifications : BaseDeletableModel<int>
     {
@@ -11,20 +13,24 @@
 
         public string GrowthRate { get; set; }
 
-        public string NitrogenFixation { get; set; }
+        public AverageHeight AverageHeight { get; set; }
 
-        public string ShapeAndOrientation { get; set; }
+        public MaximumHeight MaximumHeight { get; set; }
 
-        public int? AverageHeightId { get; set; }
+        // public Specifications()
+        // {
+        //    this.LigneousType = new HashSet<string>();
+        //    this.Toxicity = new HashSet<string>();
+        // }
 
-        public int? MaximumHeightId { get; set; }
+        // public string NitrogenFixation { get; set; }
+        //
+        // public string ShapeAndOrientation { get; set; }
 
-        public virtual AverageHeight AverageHeight { get; set; }
-
-        public virtual MaximumHeight MaximumHeight { get; set; }
-
-        public SpecificationsLigneousTypeEnum? LigneousType { get; set; }
-
-        public SpecificationsToxicityEnum? Toxicity { get; set; }
+        // [NotMapped]
+        // public ICollection<string> LigneousType { get; set; }
+        //
+        // [NotMapped]
+        // public ICollection<string> Toxicity { get; set; }
     }
 }

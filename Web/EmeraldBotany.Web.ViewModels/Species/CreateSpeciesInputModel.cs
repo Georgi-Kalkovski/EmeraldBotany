@@ -51,16 +51,16 @@
 
         public string Status { get; set; }
 
-        public virtual IEnumerator<string> Duration { get; set; }
+        public virtual IEnumerable<string> Duration { get; set; }
 
-        public virtual IEnumerator<string> EdiblePart { get; set; }
+        public virtual IEnumerable<string> EdiblePart { get; set; }
 
-        public virtual IEnumerator<Synonyms> Synonyms { get; set; }
+        public virtual IEnumerable<Synonyms> Synonyms { get; set; }
 
-        public virtual IEnumerator<Sources> Sources { get; set; }
+        public virtual IEnumerable<Source> Sources { get; set; }
 
-        public virtual IDictionary<string, IEnumerator<string>> CommonNames { get; set; }
+        public virtual IEnumerable<string> CommonNames { get; set; }
 
-        public virtual IDictionary<string, IEnumerator<string>> Distributions { get; set; }
+        public virtual IEnumerable<string> Distributions { get; set; }
     }
 }

@@ -10,12 +10,13 @@
     {
         public Species()
         {
-            this.Duration = new HashSet<DurationEnum?>();
-            this.EdiblePart = new HashSet<EdiblePartEnum?>();
-            this.CommonNames = new Dictionary<string, ICollection<string>>();
+            this.Distributions = new HashSet<string>();
+            this.CommonNames = new HashSet<string>();
+            this.Durations = new HashSet<string>();
+            this.EdibleParts = new HashSet<string>();
             this.Synonyms = new HashSet<Synonyms>();
-            this.Sources = new HashSet<Sources>();
-            this.Distributions = new Dictionary<string, ICollection<string>>();
+
+            // this.Sources = new HashSet<Source>();
         }
 
         public string ScientificName { get; set; }
@@ -52,13 +53,9 @@
 
         public int? GrowthId { get; set; }
 
-        public int? DistributionId { get; set; }
-
         public int? LinksId { get; set; }
 
         public virtual Links Links { get; set; }
-
-        public virtual Distributions Distribution { get; set; }
 
         public virtual Images Images { get; set; }
 
@@ -72,24 +69,24 @@
 
         public virtual Growth Growth { get; set; }
 
-        public virtual SpeciesRankEnum Rank { get; set; }
+        public virtual string Rank { get; set; }
 
-        public virtual SpeciesStatusEnum Status { get; set; }
-
-        [NotMapped]
-        public virtual ICollection<DurationEnum?> Duration { get; set; }
+        public virtual string Status { get; set; }
 
         [NotMapped]
-        public virtual ICollection<EdiblePartEnum?> EdiblePart { get; set; }
+        public ICollection<string> Distributions { get; set; }
+
+        [NotMapped]
+        public virtual ICollection<string> CommonNames { get; set; }
+
+        [NotMapped]
+        public virtual ICollection<string> Durations { get; set; }
+
+        [NotMapped]
+        public virtual ICollection<string> EdibleParts { get; set; }
 
         public virtual ICollection<Synonyms> Synonyms { get; set; }
 
-        public virtual ICollection<Sources> Sources { get; set; }
-
-        [NotMapped]
-        public virtual IDictionary<string, ICollection<string>> CommonNames { get; set; }
-
-        [NotMapped]
-        public virtual IDictionary<string, ICollection<string>> Distributions { get; set; }
+        // public virtual ICollection<Source> Sources { get; set; }
     }
 }
